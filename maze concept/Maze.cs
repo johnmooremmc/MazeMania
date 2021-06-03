@@ -13,7 +13,7 @@ namespace maze_concept
         public int Rows;
         public int Columns;
         public Cell[,] Cells;
-
+        
 
         public Maze(int rows, int columns)
         {
@@ -31,7 +31,9 @@ namespace maze_concept
 
                 for (int j = 0; j < columns; j++)
                 {
-                    Cells[i, j] = new Cell(i, j);
+                    
+                    Cells[i, j] = new Cell(i, j, (i + j) % 2 == 0);
+
                     
 
 
@@ -50,6 +52,7 @@ namespace maze_concept
 
                 for (int j = 0; j < Columns; j++)
                 {
+                    
                     Cells[i, j].DrawCells(g);
 
 
