@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
+
 
 namespace maze_concept
 {
@@ -16,16 +18,28 @@ namespace maze_concept
         {
             InitializeComponent();
 
-            maze = new Maze(10, 10);
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlDraw, new object[] { true });
+
+            maze = new Maze(26, 24);
 
 
         }
 
-        public Maze maze;
+        private Maze maze;
         
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+
+        private void pnlDraw_paint(object sender, PaintEventArgs e)
         {
+            Graphics g = e.Graphics;
+
+            Brush br = Brushes.Black;
+
+            maze.DrawCells(g);
+
+
+
+
 
         }
     }

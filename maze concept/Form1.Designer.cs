@@ -29,23 +29,23 @@ namespace maze_concept
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlDraw = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlDraw
             // 
-            this.panel1.Location = new System.Drawing.Point(12, 32);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(657, 604);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.pnlDraw.Location = new System.Drawing.Point(12, 32);
+            this.pnlDraw.Name = "pnlDraw";
+            this.pnlDraw.Size = new System.Drawing.Size(657, 604);
+            this.pnlDraw.TabIndex = 0;
+            this.pnlDraw.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDraw_paint);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 648);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlDraw);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -54,7 +54,7 @@ namespace maze_concept
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlDraw;
     }
 }
 
