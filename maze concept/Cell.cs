@@ -14,7 +14,10 @@ namespace maze_concept
         public int width, height;
         public int x, y;
 
-        bool Wall;
+        public bool rightwall = true;
+        public bool bottomwall = true;
+
+        public bool visited = false;
         
         internal void DrawCells(Graphics g)
         {
@@ -22,18 +25,20 @@ namespace maze_concept
             Pen Pen = Pens.Black;
             Brush br = Brushes.Black;
 
-            if (Wall)
+           if (rightwall)
             {
-                g.DrawRectangle(Pen, x, y, width, height);
-                g.FillRectangle(br, x, y, width, height);
+                g.DrawLine(Pen, x + width, y, x + width, y + height);
 
             }
-            else
+            if (bottomwall)
             {
-                g.DrawRectangle(Pen, x, y, width, height);
+                g.DrawLine(Pen, x, y+ height, x + width, y + height);
 
             }
-
+            if (visited)
+            { 
+                g.FillEllipse(br, x + width / 4, y + height / 4, width/2, height/2);
+            }
 
 
 
@@ -47,7 +52,8 @@ namespace maze_concept
             x = i *width;
             y = j *height;
 
-            Wall = wall;
+           
+            
 
 
         }
