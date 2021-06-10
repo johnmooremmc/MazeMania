@@ -35,11 +35,7 @@ namespace maze_concept
                 g.DrawLine(Pen, x, y+ height, x + width, y + height);
 
             }
-            if (visited)
-            { 
-                g.FillEllipse(br, x + width / 4, y + height / 4, width/2, height/2);
-            }
-
+           
 
 
         }
