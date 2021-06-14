@@ -12,9 +12,9 @@ using System.Reflection;
 
 namespace maze_concept
 {
-    public partial class Form1 : Form
+    public partial class MazeMania : Form
     {
-        public Form1()
+        public MazeMania()
         {
             InitializeComponent();
 
@@ -41,6 +41,53 @@ namespace maze_concept
 
 
 
+        }
+
+        private void mstOptions_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PBMenu.Visible = false;
+            btnStart.Visible = false;
+            btnExit.Visible = false;
+            mstOptions.Visible = true;
+
+
+            maze.GenerateMaze();
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnStart_MouseHover(object sender, EventArgs e)
+        {
+            btnStart.ForeColor = Color.Pink;
+        }
+
+        private void btnStart_MouseLeave(object sender, EventArgs e)
+        {
+            btnStart.ForeColor = Color.Yellow;
+        }
+
+        private void btnExit_MouseHover(object sender, EventArgs e)
+        {
+            btnExit.ForeColor = Color.Pink;
+        }
+
+        private void btnExit_MouseLeave(object sender, EventArgs e)
+        {
+            btnExit.ForeColor = Color.Yellow;
         }
     }
 }

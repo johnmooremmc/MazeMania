@@ -47,7 +47,7 @@ namespace maze_concept
             }
 
 
-            GenerateMaze();
+            
 
         }
 
