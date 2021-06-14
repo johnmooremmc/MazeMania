@@ -108,6 +108,7 @@ namespace maze_concept
             // 
             // mstOptions
             // 
+            this.mstOptions.Enabled = false;
             this.mstOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem,
             this.optionsToolStripMenuItem,

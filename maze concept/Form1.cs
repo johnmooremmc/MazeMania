@@ -55,6 +55,9 @@ namespace maze_concept
             btnExit.Visible = false;
             mstOptions.Visible = true;
 
+            btnStart.Enabled = false;
+            btnExit.Enabled = false;
+            mstOptions.Enabled = true;
 
             maze.GenerateMaze();
 
