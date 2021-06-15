@@ -136,7 +136,7 @@ namespace maze_concept
                 {
 
                     Cells[i, j].DrawCells(g);
-
+                    
 
 
                 }
@@ -148,6 +148,7 @@ namespace maze_concept
 
 
         }
+
 
 
     }

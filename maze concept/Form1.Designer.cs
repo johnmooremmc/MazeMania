@@ -29,6 +29,7 @@ namespace maze_concept
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MazeMania));
             this.pnlDraw = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@ namespace maze_concept
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmrAvatar = new System.Windows.Forms.Timer(this.components);
             this.pnlDraw.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBMenu)).BeginInit();
             this.mstOptions.SuspendLayout();
@@ -219,6 +221,10 @@ namespace maze_concept
             this.restartToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.restartToolStripMenuItem.Text = "Restart";
             // 
+            // tmrAvatar
+            // 
+            this.tmrAvatar.Tick += new System.EventHandler(this.tmrAvatar_Tick);
+            // 
             // MazeMania
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,6 +236,9 @@ namespace maze_concept
             this.MainMenuStrip = this.mstOptions;
             this.Name = "MazeMania";
             this.Text = "MazeMania";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MazeMania_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MazeMania_KeyPress);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MazeMania_KeyUp);
             this.pnlDraw.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PBMenu)).EndInit();
             this.mstOptions.ResumeLayout(false);
@@ -260,6 +269,7 @@ namespace maze_concept
         private System.Windows.Forms.PictureBox PBMenu;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Timer tmrAvatar;
     }
 }
 

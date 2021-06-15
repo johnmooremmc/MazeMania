@@ -21,12 +21,15 @@ namespace maze_concept
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlDraw, new object[] { true });
 
             maze = new Maze(26, 24);
+            avatar = new Avatar();
+            avatar.x = 0;
+            avatar.y = 0;
 
 
         }
 
         private Maze maze;
-        
+        private Avatar avatar;
 
 
         private void pnlDraw_paint(object sender, PaintEventArgs e)
@@ -37,6 +40,7 @@ namespace maze_concept
 
             maze.DrawCells(g);
 
+             avatar.DrawAvatar(g);
 
 
 
@@ -91,6 +95,45 @@ namespace maze_concept
         private void btnExit_MouseLeave(object sender, EventArgs e)
         {
             btnExit.ForeColor = Color.Yellow;
+        }
+
+        private void tmrAvatar_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MazeMania_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        }
+
+        private void MazeMania_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.D)
+            {
+                avatar.x = avatar.x + 25;
+
+            }
+            if (e.KeyCode == Keys.A)
+            {
+                avatar.x = avatar.x - 25;
+
+            }
+            if (e.KeyCode == Keys.W)
+            {
+                avatar.y = avatar.y - 25;
+
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                avatar.y = avatar.y + 25;
+
+            }
+            pnlDraw.Invalidate();
+        }
+
+        private void MazeMania_KeyUp(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }
