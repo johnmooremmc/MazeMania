@@ -108,24 +108,38 @@ namespace maze_concept
 
         private void MazeMania_KeyDown(object sender, KeyEventArgs e)
         {
+
             if (e.KeyCode == Keys.D)
             {
-                avatar.x = avatar.x + 25;
+                if (avatar.x / 20 < maze.Columns)
+                {
+                    avatar.x = avatar.x + 25;
+                }
+                
 
             }
             if (e.KeyCode == Keys.A)
             {
-                avatar.x = avatar.x - 25;
+                if ((avatar.x -25) / 25 >= 0)
+                {
+                    avatar.x = avatar.x - 25;
+                }
 
             }
             if (e.KeyCode == Keys.W)
             {
-                avatar.y = avatar.y - 25;
+                if ((avatar.y-25)/ 25 >= 0)
+                {
+                    avatar.y = avatar.y - 25;
+                }
 
             }
             if (e.KeyCode == Keys.S)
             {
-                avatar.y = avatar.y + 25;
+                if (avatar.y / 20 < maze.Rows)
+                {
+                    avatar.y = avatar.y + 25;
+                }
 
             }
             pnlDraw.Invalidate();
