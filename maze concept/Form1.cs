@@ -20,7 +20,7 @@ namespace maze_concept
 
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlDraw, new object[] { true });
 
-            maze = new Maze(26, 24);
+            maze = new Maze(24, 24);
             avatar = new Avatar();
             avatar.x = 0;
             avatar.y = 0;
