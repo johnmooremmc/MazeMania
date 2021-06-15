@@ -113,7 +113,10 @@ namespace maze_concept
             {
                 if (avatar.x / 20 < maze.Columns)
                 {
-                    avatar.x = avatar.x + 25;
+                    if (maze.Cells[avatar.x/25,avatar.y/25].rightwall != true)
+                    {
+                        avatar.x = avatar.x + 25;
+                    }
                 }
                 
 
@@ -122,7 +125,10 @@ namespace maze_concept
             {
                 if ((avatar.x -25) / 25 >= 0)
                 {
-                    avatar.x = avatar.x - 25;
+                    if (maze.Cells[avatar.x / 25 - 1, avatar.y / 25].rightwall != true)
+                    {
+                        avatar.x = avatar.x - 25;
+                    }
                 }
 
             }
@@ -130,7 +136,10 @@ namespace maze_concept
             {
                 if ((avatar.y-25)/ 25 >= 0)
                 {
-                    avatar.y = avatar.y - 25;
+                    if (maze.Cells[avatar.x / 25, (avatar.y / 25) - 1].bottomwall != true)
+                    {
+                        avatar.y = avatar.y - 25;
+                    }
                 }
 
             }
@@ -138,7 +147,10 @@ namespace maze_concept
             {
                 if (avatar.y / 20 < maze.Rows)
                 {
-                    avatar.y = avatar.y + 25;
+                    if (maze.Cells[avatar.x / 25, avatar.y / 25].bottomwall != true)
+                    {
+                        avatar.y = avatar.y + 25;
+                    }
                 }
 
             }
