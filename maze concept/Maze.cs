@@ -65,32 +65,32 @@ namespace maze_concept
             {
                 startcell = history.Pop();
 
-                List<Point> lonelyNeighboors = new List<Point>();
+                List<Point> lonelyNeighbours = new List<Point>();
 
                 if (startcell.Y - 1 >= 0 && !Cells[startcell.X, startcell.Y - 1].visited)
                 {
-                    lonelyNeighboors.Add(new Point(startcell.X, startcell.Y - 1));
+                    lonelyNeighbours.Add(new Point(startcell.X, startcell.Y - 1));
                 }
                 if (startcell.Y + 1 < Rows && !Cells[startcell.X, startcell.Y + 1].visited)
                 {
-                    lonelyNeighboors.Add(new Point(startcell.X, startcell.Y + 1));
+                    lonelyNeighbours.Add(new Point(startcell.X, startcell.Y + 1));
                 }
                 if (startcell.X - 1 >= 0 && !Cells[startcell.X - 1, startcell.Y].visited)
                 {
-                    lonelyNeighboors.Add(new Point(startcell.X - 1, startcell.Y));
+                    lonelyNeighbours.Add(new Point(startcell.X - 1, startcell.Y));
                 }
                 if (startcell.X + 1 < Columns && !Cells[startcell.X + 1, startcell.Y].visited)
                 {
-                    lonelyNeighboors.Add(new Point(startcell.X + 1, startcell.Y));
+                    lonelyNeighbours.Add(new Point(startcell.X + 1, startcell.Y));
                 }
 
 
-                if (lonelyNeighboors.Count > 0)
+                if (lonelyNeighbours.Count > 0)
                 {
                     history.Push(startcell);
 
-                    int dr = rand.Next(0, lonelyNeighboors.Count);
-                    Point next = lonelyNeighboors[dr];
+                    int dr = rand.Next(0, lonelyNeighbours.Count);
+                    Point next = lonelyNeighbours[dr];
 
                     var V = (next.X - startcell.X, next.Y - startcell.Y);
 

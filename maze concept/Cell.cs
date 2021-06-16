@@ -22,8 +22,8 @@ namespace maze_concept
         internal void DrawCells(Graphics g)
         {
 
-            Pen Pen = Pens.Black;
-            Brush br = Brushes.Black;
+            Pen Pen = Pens.Orange;
+            
 
            if (rightwall)
             {
@@ -35,7 +35,8 @@ namespace maze_concept
                 g.DrawLine(Pen, x, y+ height, x + width, y + height);
 
             }
-           
+            g.DrawLine(Pen, 0, y, 0, y + this.height);
+            g.DrawLine(Pen, x, 0, x + this.width, 0);
 
 
         }

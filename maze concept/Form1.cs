@@ -30,7 +30,7 @@ namespace maze_concept
 
         private Maze maze;
         private Avatar avatar;
-
+        bool playing = false;
 
         private void pnlDraw_paint(object sender, PaintEventArgs e)
         {
@@ -62,6 +62,8 @@ namespace maze_concept
             btnStart.Enabled = false;
             btnExit.Enabled = false;
             mstOptions.Enabled = true;
+
+            playing = true;
 
             maze.GenerateMaze();
 
@@ -108,54 +110,56 @@ namespace maze_concept
 
         private void MazeMania_KeyDown(object sender, KeyEventArgs e)
         {
-
-            if (e.KeyCode == Keys.D)
+            if (playing)
             {
-                if (avatar.x / 25 < maze.Columns)
+                if (e.KeyCode == Keys.D)
                 {
-                    if (maze.Cells[avatar.x/25,avatar.y/25].rightwall != true)
+                    if (avatar.x / 25 < maze.Columns)
                     {
-                        avatar.x = avatar.x + 25;
+                        if (maze.Cells[avatar.x / 25, avatar.y / 25].rightwall != true)
+                        {
+                            avatar.x = avatar.x + 25;
+                        }
                     }
-                }
-                
 
-            }
-            if (e.KeyCode == Keys.A)
-            {
-                if ((avatar.x -25) / 25 >= 0)
+
+                }
+                if (e.KeyCode == Keys.A)
                 {
-                    if (maze.Cells[avatar.x / 25 - 1, avatar.y / 25].rightwall != true)
+                    if ((avatar.x - 25) / 25 >= 0)
                     {
-                        avatar.x = avatar.x - 25;
+                        if (maze.Cells[avatar.x / 25 - 1, avatar.y / 25].rightwall != true)
+                        {
+                            avatar.x = avatar.x - 25;
+                        }
                     }
-                }
 
-            }
-            if (e.KeyCode == Keys.W)
-            {
-                if ((avatar.y-25)/ 25 >= 0)
+                }
+                if (e.KeyCode == Keys.W)
                 {
-                    if (maze.Cells[avatar.x / 25, (avatar.y / 25) - 1].bottomwall != true)
+                    if ((avatar.y - 25) / 25 >= 0)
                     {
-                        avatar.y = avatar.y - 25;
+                        if (maze.Cells[avatar.x / 25, (avatar.y / 25) - 1].bottomwall != true)
+                        {
+                            avatar.y = avatar.y - 25;
+                        }
                     }
-                }
 
-            }
-            if (e.KeyCode == Keys.S)
-            {
-                if (avatar.y / 25 < maze.Rows)
+                }
+                if (e.KeyCode == Keys.S)
                 {
-                    if (maze.Cells[avatar.x / 25, avatar.y / 25].bottomwall != true)
+                    if (avatar.y / 25 < maze.Rows)
                     {
-                        avatar.y = avatar.y + 25;
+                        if (maze.Cells[avatar.x / 25, avatar.y / 25].bottomwall != true)
+                        {
+                            avatar.y = avatar.y + 25;
+                        }
                     }
-                }
 
+                }
+                pnlDraw.Invalidate();
             }
-            pnlDraw.Invalidate();
-        }
+            }
 
         private void MazeMania_KeyUp(object sender, KeyEventArgs e)
         {
