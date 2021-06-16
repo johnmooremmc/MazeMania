@@ -20,10 +20,10 @@ namespace maze_concept
 
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlDraw, new object[] { true });
 
-            maze = new Maze(24, 24);
+            maze = new Maze(20, 20);
             avatar = new Avatar();
-            avatar.x = 0;
-            avatar.y = 0;
+            avatar.x = maze.Cells[1,1].x;
+            avatar.y = maze.Cells[1,1].y;
 
 
         }
@@ -111,7 +111,7 @@ namespace maze_concept
 
             if (e.KeyCode == Keys.D)
             {
-                if (avatar.x / 20 < maze.Columns)
+                if (avatar.x / 25 < maze.Columns)
                 {
                     if (maze.Cells[avatar.x/25,avatar.y/25].rightwall != true)
                     {
@@ -145,7 +145,7 @@ namespace maze_concept
             }
             if (e.KeyCode == Keys.S)
             {
-                if (avatar.y / 20 < maze.Rows)
+                if (avatar.y / 25 < maze.Rows)
                 {
                     if (maze.Cells[avatar.x / 25, avatar.y / 25].bottomwall != true)
                     {
