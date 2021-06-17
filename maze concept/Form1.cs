@@ -12,9 +12,6 @@ using System.Reflection;
 
 namespace maze_concept
 {
-
-   
-
     public partial class MazeMania : Form
     {
         public MazeMania()
