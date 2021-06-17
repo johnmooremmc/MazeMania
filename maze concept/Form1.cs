@@ -33,8 +33,8 @@ namespace maze_concept
             avatar.x = maze.Cells[10 + rand.Next(-5,5), 10 + rand.Next(-5, 5)].x;
             avatar.y = maze.Cells[10 + rand.Next(-5, 5), 10 + rand.Next(-5, 5)].y;
 
-            goal.x = maze.Cells[10 + rand.Next(-15, 15), 10 + rand.Next(-15, 15)].x;
-            goal.y = maze.Cells[10 + rand.Next(-12, 12), 10 + rand.Next(-12, 12)].y;
+            goal.x = maze.Cells[10 + rand.Next(-10, 10), 10 + rand.Next(-10, 12)].x;
+            goal.y = maze.Cells[10 + rand.Next(-10, 12), 10 + rand.Next(-10, 12)].y;
 
 
         }
