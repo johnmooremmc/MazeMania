@@ -43,10 +43,20 @@ namespace maze_concept
         {
             
 
-            Point startCell = new Point(1, 1);
-
-
             Stack<Point> history = new Stack<Point>();
+            history.Clear();
+
+            for (int i = 0; i < Columns; i++)
+            {
+                for (int j = 0; j < Rows; j++)
+                {
+                    Cells[i, j].visited = false;
+                    Cells[i, j].rightwall = true;
+                    Cells[i, j].bottomwall = true;
+                }
+            }
+
+            Point startCell = new Point(1, 1);
 
 
             Cells[startCell.X, startCell.Y].visited = true;

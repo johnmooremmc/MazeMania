@@ -25,7 +25,7 @@ namespace maze_concept
             maze = new Maze(20, 20);
             avatar = new Avatar();
             goal = new Goal();
-
+            
 
             avatar.x = maze.Cells[10 + rand.Next(-5,5), 10 + rand.Next(-5, 5)].x;
             avatar.y = maze.Cells[10 + rand.Next(-5, 5), 10 + rand.Next(-5, 5)].y;
@@ -36,6 +36,7 @@ namespace maze_concept
 
         }
 
+        
         private Maze maze;
         private Avatar avatar;
         private Goal goal;
@@ -53,6 +54,7 @@ namespace maze_concept
             
             goal.DrawGoal(g);
 
+            
 
 
 
@@ -174,6 +176,14 @@ namespace maze_concept
 
         private void MazeMania_KeyUp(object sender, KeyEventArgs e)
         {
+
+        }
+
+        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlDraw.Refresh();
+            maze.GenerateMaze();
+            pnlDraw.Invalidate();
 
         }
     }

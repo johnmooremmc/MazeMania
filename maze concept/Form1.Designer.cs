@@ -101,7 +101,7 @@ namespace maze_concept
             // 
             this.PBMenu.Image = ((System.Drawing.Image)(resources.GetObject("PBMenu.Image")));
             this.PBMenu.InitialImage = ((System.Drawing.Image)(resources.GetObject("PBMenu.InitialImage")));
-            this.PBMenu.Location = new System.Drawing.Point(-12, -53);
+            this.PBMenu.Location = new System.Drawing.Point(-11, -53);
             this.PBMenu.Name = "PBMenu";
             this.PBMenu.Size = new System.Drawing.Size(545, 595);
             this.PBMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -220,6 +220,7 @@ namespace maze_concept
             this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
             this.restartToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.restartToolStripMenuItem.Text = "Restart";
+            this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
             // 
             // tmrAvatar
             // 
