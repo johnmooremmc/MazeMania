@@ -17,7 +17,7 @@ namespace maze_concept
 
 
         Random rand = new Random();
-
+        
 
 
         public Maze(int rows, int columns)
@@ -25,24 +25,15 @@ namespace maze_concept
             int x;
             int y;
             Cells = new Cell[columns, rows];
-
+            
             Rows = rows;
             Columns = columns;
 
             for (int i = 0; i < columns; i++)
             {
-
-
-
                 for (int j = 0; j < rows; j++)
                 {
-
-
-
                     Cells[i, j] = new Cell(i, j, (i + j) % 2 == 0);
-
-
-
                 }
             }
         }
@@ -52,65 +43,65 @@ namespace maze_concept
         {
             
 
-            Point startcell = new Point(1, 1);
+            Point startCell = new Point(1, 1);
 
 
             Stack<Point> history = new Stack<Point>();
 
 
-            Cells[startcell.X, startcell.Y].visited = true;
-            history.Push(startcell);
+            Cells[startCell.X, startCell.Y].visited = true;
+            history.Push(startCell);
 
             while (history.Count > 0)
             {
-                startcell = history.Pop();
+                startCell = history.Pop();
 
                 List<Point> lonelyNeighbours = new List<Point>();
 
-                if (startcell.Y - 1 >= 0 && !Cells[startcell.X, startcell.Y - 1].visited)
+                if (startCell.Y - 1 >= 0 && !Cells[startCell.X, startCell.Y - 1].visited)
                 {
-                    lonelyNeighbours.Add(new Point(startcell.X, startcell.Y - 1));
+                    lonelyNeighbours.Add(new Point(startCell.X, startCell.Y - 1));
                 }
-                if (startcell.Y + 1 < Rows && !Cells[startcell.X, startcell.Y + 1].visited)
+                if (startCell.Y + 1 < Rows && !Cells[startCell.X, startCell.Y + 1].visited)
                 {
-                    lonelyNeighbours.Add(new Point(startcell.X, startcell.Y + 1));
+                    lonelyNeighbours.Add(new Point(startCell.X, startCell.Y + 1));
                 }
-                if (startcell.X - 1 >= 0 && !Cells[startcell.X - 1, startcell.Y].visited)
+                if (startCell.X - 1 >= 0 && !Cells[startCell.X - 1, startCell.Y].visited)
                 {
-                    lonelyNeighbours.Add(new Point(startcell.X - 1, startcell.Y));
+                    lonelyNeighbours.Add(new Point(startCell.X - 1, startCell.Y));
                 }
-                if (startcell.X + 1 < Columns && !Cells[startcell.X + 1, startcell.Y].visited)
+                if (startCell.X + 1 < Columns && !Cells[startCell.X + 1, startCell.Y].visited)
                 {
-                    lonelyNeighbours.Add(new Point(startcell.X + 1, startcell.Y));
+                    lonelyNeighbours.Add(new Point(startCell.X + 1, startCell.Y));
                 }
 
 
                 if (lonelyNeighbours.Count > 0)
                 {
-                    history.Push(startcell);
+                    history.Push(startCell);
 
                     int dr = rand.Next(0, lonelyNeighbours.Count);
                     Point next = lonelyNeighbours[dr];
 
-                    var V = (next.X - startcell.X, next.Y - startcell.Y);
+                    var V = (next.X - startCell.X, next.Y - startCell.Y);
 
                     if (V == (1, 0))
                     {
-                        Cells[startcell.X, startcell.Y].rightwall = false;
+                        Cells[startCell.X, startCell.Y].rightwall = false;
 
                     }
                     if (V == (0, 1))
                     {
-                        Cells[startcell.X, startcell.Y].bottomwall = false;
+                        Cells[startCell.X, startCell.Y].bottomwall = false;
                     }
                     if (V == (-1, 0))
                     {
-                        Cells[startcell.X -1, startcell.Y].rightwall = false;
+                        Cells[startCell.X -1, startCell.Y].rightwall = false;
 
                     }
                     if (V == (0, -1))
                     {
-                        Cells[startcell.X, startcell.Y -1].bottomwall = false;
+                        Cells[startCell.X, startCell.Y -1].bottomwall = false;
                     }
 
                     Cells[next.X, next.Y].visited = true;

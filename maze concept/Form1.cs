@@ -12,6 +12,9 @@ using System.Reflection;
 
 namespace maze_concept
 {
+
+   
+
     public partial class MazeMania : Form
     {
         public MazeMania()
@@ -20,16 +23,25 @@ namespace maze_concept
 
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlDraw, new object[] { true });
 
+            Random rand = new Random();
+
             maze = new Maze(20, 20);
             avatar = new Avatar();
-            avatar.x = maze.Cells[1,1].x;
-            avatar.y = maze.Cells[1,1].y;
+            goal = new Goal();
+
+
+            avatar.x = maze.Cells[10 + rand.Next(-5,5), 10 + rand.Next(-5, 5)].x;
+            avatar.y = maze.Cells[10 + rand.Next(-5, 5), 10 + rand.Next(-5, 5)].y;
+
+            goal.x = maze.Cells[10 + rand.Next(-15, 15), 10 + rand.Next(-15, 15)].x;
+            goal.y = maze.Cells[10 + rand.Next(-12, 12), 10 + rand.Next(-12, 12)].y;
 
 
         }
 
         private Maze maze;
         private Avatar avatar;
+        private Goal goal;
         bool playing = false;
 
         private void pnlDraw_paint(object sender, PaintEventArgs e)
@@ -40,7 +52,9 @@ namespace maze_concept
 
             maze.DrawCells(g);
 
-             avatar.DrawAvatar(g);
+            avatar.DrawAvatar(g);
+            
+            goal.DrawGoal(g);
 
 
 

@@ -61,7 +61,7 @@ namespace maze_concept
             this.pnlDraw.Controls.Add(this.btnExit);
             this.pnlDraw.Controls.Add(this.btnStart);
             this.pnlDraw.Controls.Add(this.PBMenu);
-            this.pnlDraw.Location = new System.Drawing.Point(12, 22);
+            this.pnlDraw.Location = new System.Drawing.Point(12, 33);
             this.pnlDraw.Name = "pnlDraw";
             this.pnlDraw.Size = new System.Drawing.Size(521, 545);
             this.pnlDraw.TabIndex = 0;
@@ -72,7 +72,7 @@ namespace maze_concept
             this.btnExit.BackColor = System.Drawing.Color.DarkBlue;
             this.btnExit.Font = new System.Drawing.Font("Bahnschrift Condensed", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.Yellow;
-            this.btnExit.Location = new System.Drawing.Point(41, 408);
+            this.btnExit.Location = new System.Drawing.Point(30, 396);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(163, 71);
             this.btnExit.TabIndex = 2;
@@ -87,7 +87,7 @@ namespace maze_concept
             this.btnStart.BackColor = System.Drawing.Color.DarkBlue;
             this.btnStart.Font = new System.Drawing.Font("Bahnschrift Condensed", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.Yellow;
-            this.btnStart.Location = new System.Drawing.Point(41, 312);
+            this.btnStart.Location = new System.Drawing.Point(30, 300);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(163, 71);
             this.btnStart.TabIndex = 1;
@@ -101,7 +101,7 @@ namespace maze_concept
             // 
             this.PBMenu.Image = ((System.Drawing.Image)(resources.GetObject("PBMenu.Image")));
             this.PBMenu.InitialImage = ((System.Drawing.Image)(resources.GetObject("PBMenu.InitialImage")));
-            this.PBMenu.Location = new System.Drawing.Point(0, -41);
+            this.PBMenu.Location = new System.Drawing.Point(-12, -53);
             this.PBMenu.Name = "PBMenu";
             this.PBMenu.Size = new System.Drawing.Size(545, 595);
             this.PBMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
