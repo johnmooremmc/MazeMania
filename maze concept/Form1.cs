@@ -119,7 +119,7 @@ namespace maze_concept
 
         private void tmrAvatar_Tick(object sender, EventArgs e)
         {
-
+            
         }
 
         private void MazeMania_KeyPress(object sender, KeyPressEventArgs e)
@@ -190,7 +190,14 @@ namespace maze_concept
             maze.GenerateMaze();
             pnlDraw.Invalidate();
 
+            Random rand2 = new Random();
+            goal.x = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].x;
+            goal.y = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].y;
 
+            avatar.x = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].x;
+            avatar.y = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].y;
+
+            Score = 0;
 
         }
 
