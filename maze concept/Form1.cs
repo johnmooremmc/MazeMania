@@ -45,6 +45,12 @@ namespace maze_concept
 
         int Score;
 
+        public Image goalSkin;
+        //goalSkin = Properties.Resources.Avatar10;
+
+
+
+
         private void pnlDraw_paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -54,8 +60,8 @@ namespace maze_concept
             maze.DrawCells(g);
 
             avatar.DrawAvatar(g, skin);
-            
-            goal.DrawGoal(g);
+
+            goal.DrawGoal(g, goalSkin);
 
             CheckConditions();
 
@@ -286,7 +292,6 @@ namespace maze_concept
                 Random rand2 = new Random();
                 goal.x = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].x;
                 goal.y = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].y;
-
 
 
                 pnlDraw.Refresh();
