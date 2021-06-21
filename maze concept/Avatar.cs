@@ -11,10 +11,10 @@ namespace maze_concept
     {
         public int width, height;
         public int x, y;
-        
+        public Image avatarSkin = Properties.Resources.Avatar1;
 
 
-        public void DrawAvatar(Graphics g)
+        public void DrawAvatar(Graphics g, string skin)
         {
             Pen Pen = Pens.Yellow;
             Brush br = Brushes.Yellow;
@@ -22,9 +22,29 @@ namespace maze_concept
             width = 20;
             height = 20;
 
-            g.DrawRectangle(Pen, x + 2, y + 2, width, height);
-            g.FillRectangle(br, x + 2, y + 2, width, height);
+            g.DrawImage(avatarSkin, x+2, y+2, width, height);
 
+            if (skin == "1")
+            {
+                avatarSkin = Properties.Resources.Avatar1;
+            }
+            if (skin == "2")
+            {
+                avatarSkin = Properties.Resources.Avatar2;
+            }
+            if (skin == "3")
+            {
+                avatarSkin = Properties.Resources.Avatar3;
+            }
+            if (skin == "4")
+            {
+                avatarSkin = Properties.Resources.Avatar4;
+            }
+            if (skin == "5")
+            {
+                avatarSkin = Properties.Resources.Avatar5;
+            }
+            
 
 
         }

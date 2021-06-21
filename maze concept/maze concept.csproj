@@ -69,6 +69,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -82,6 +83,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Skin1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avatar5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avatar4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avatar1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avatar3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avatar2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\32-328161_free-treasure-chest-clip-art-treasure-chest-clipart-free.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

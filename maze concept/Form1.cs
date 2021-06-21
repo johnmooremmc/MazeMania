@@ -41,6 +41,7 @@ namespace maze_concept
         private Avatar avatar;
         private Goal goal;
         bool playing = false;
+        string skin = "1";
 
         private void pnlDraw_paint(object sender, PaintEventArgs e)
         {
@@ -50,7 +51,7 @@ namespace maze_concept
 
             maze.DrawCells(g);
 
-            avatar.DrawAvatar(g);
+            avatar.DrawAvatar(g, skin);
             
             goal.DrawGoal(g);
 
@@ -185,6 +186,82 @@ namespace maze_concept
             maze.GenerateMaze();
             pnlDraw.Invalidate();
 
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            skin = "1";
+            pnlDraw.Refresh();
+            pnlDraw.Invalidate();
+
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            skin = "2";
+            pnlDraw.Refresh();
+            pnlDraw.Invalidate();
+
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            skin = "3";
+            pnlDraw.Refresh();
+            pnlDraw.Invalidate();
+
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            skin = "4";
+            pnlDraw.Refresh();
+            pnlDraw.Invalidate();
+
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            skin = "5";
+            pnlDraw.Refresh();
+            pnlDraw.Invalidate();
+
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            skin = "6";
+            pnlDraw.Refresh();
+            pnlDraw.Invalidate();
+
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            skin = "7";
+            pnlDraw.Refresh();
+            pnlDraw.Invalidate();
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            skin = "8";
+            pnlDraw.Refresh();
+            pnlDraw.Invalidate();
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            skin = "9";
+            pnlDraw.Refresh();
+            pnlDraw.Invalidate();
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            skin = "10";
+            pnlDraw.Refresh();
+            pnlDraw.Invalidate();
         }
     }
 }

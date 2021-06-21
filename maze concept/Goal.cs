@@ -11,13 +11,13 @@ namespace maze_concept
     {
         public int width, height;
         public int x, y;
-       
+        public Image goalSkin = Properties.Resources._32_328161_free_treasure_chest_clip_art_treasure_chest_clipart_free;
+
 
 
         public void DrawGoal(Graphics g)
         {
-            Pen Pen = Pens.Yellow;
-            Brush br = Brushes.Yellow;
+            
 
             width = 20;
             height = 20;
@@ -26,8 +26,8 @@ namespace maze_concept
 
 
 
-            g.DrawRectangle(Pen, x + 2, y + 2, width, height);
-            g.FillRectangle(br, x + 2, y + 2, width, height);
+            g.DrawImage(goalSkin, x + 2, y + 2, width, height);
+            
 
 
 
