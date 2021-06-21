@@ -83,6 +83,16 @@ namespace maze_concept.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Avatar10 {
+            get {
+                object obj = ResourceManager.GetObject("Avatar10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Avatar2 {
             get {
                 object obj = ResourceManager.GetObject("Avatar2", resourceCulture);
@@ -116,6 +126,46 @@ namespace maze_concept.Properties {
         internal static System.Drawing.Bitmap Avatar5 {
             get {
                 object obj = ResourceManager.GetObject("Avatar5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Avatar6 {
+            get {
+                object obj = ResourceManager.GetObject("Avatar6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Avatar7 {
+            get {
+                object obj = ResourceManager.GetObject("Avatar7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Avatar8 {
+            get {
+                object obj = ResourceManager.GetObject("Avatar8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Avatar9 {
+            get {
+                object obj = ResourceManager.GetObject("Avatar9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

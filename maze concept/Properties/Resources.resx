@@ -121,6 +121,9 @@
   <data name="Avatar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Avatar1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Avatar10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Avatar10.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Avatar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Avatar2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -132,6 +135,18 @@
   </data>
   <data name="Avatar5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Avatar5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Avatar6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Avatar6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Avatar7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Avatar7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Avatar8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Avatar8.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Avatar9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Avatar9.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Skin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Skin1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

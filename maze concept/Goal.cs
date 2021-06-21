@@ -11,7 +11,7 @@ namespace maze_concept
     {
         public int width, height;
         public int x, y;
-        public Image goalSkin = Properties.Resources._32_328161_free_treasure_chest_clip_art_treasure_chest_clipart_free;
+        public Image goalSkin = Properties.Resources.Avatar10;
 
 
         public void DrawGoal(Graphics g)

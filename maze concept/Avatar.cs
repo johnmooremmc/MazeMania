@@ -26,7 +26,7 @@ namespace maze_concept
 
             if (skin == "1")
             {
-                avatarSkin = Properties.Resources.Avatar1;
+                avatarSkin = Properties.Resources.Avatar3;
             }
             if (skin == "2")
             {
@@ -34,7 +34,7 @@ namespace maze_concept
             }
             if (skin == "3")
             {
-                avatarSkin = Properties.Resources.Avatar3;
+                avatarSkin = Properties.Resources.Avatar1;
             }
             if (skin == "4")
             {
@@ -44,7 +44,27 @@ namespace maze_concept
             {
                 avatarSkin = Properties.Resources.Avatar5;
             }
-            
+            if (skin == "6")
+            {
+                avatarSkin = Properties.Resources.Avatar6;
+            }
+            if (skin == "7")
+            {
+                avatarSkin = Properties.Resources.Avatar7;
+            }
+            //if (skin == "8")
+            //{
+            //    avatarSkin = Properties.Resources.Avatar8;
+            //}
+            if (skin == "9")
+            {
+                avatarSkin = Properties.Resources.Avatar9;
+            }
+            //if (skin == "10")
+            //{
+            //    avatarSkin = Properties.Resources.Avatar10;
+            //}
+
 
         }
 

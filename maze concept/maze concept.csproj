@@ -105,5 +105,20 @@
   <ItemGroup>
     <None Include="Resources\32-328161_free-treasure-chest-clip-art-treasure-chest-clipart-free.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avatar6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avatar7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avatar8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avatar9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avatar10.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
