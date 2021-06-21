@@ -43,6 +43,8 @@ namespace maze_concept
         bool playing = false;
         string skin = "1";
 
+        int Score;
+
         private void pnlDraw_paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -55,7 +57,9 @@ namespace maze_concept
             
             goal.DrawGoal(g);
 
-            
+            CheckConditions();
+
+
 
 
 
@@ -186,6 +190,8 @@ namespace maze_concept
             maze.GenerateMaze();
             pnlDraw.Invalidate();
 
+
+
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -262,6 +268,30 @@ namespace maze_concept
             skin = "10";
             pnlDraw.Refresh();
             pnlDraw.Invalidate();
+        }
+
+        public void CheckConditions()
+        {
+            if (avatar.x == goal.x & avatar.y == goal.y )
+            {
+                maze.GenerateMaze();
+
+                Random rand2 = new Random();
+                goal.x = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].x;
+                goal.y = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].y;
+
+
+
+                pnlDraw.Refresh();
+                pnlDraw.Invalidate();
+                
+                
+                
+                Score += 1;
+
+
+            }
+
         }
     }
 }
