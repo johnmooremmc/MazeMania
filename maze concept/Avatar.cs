@@ -15,9 +15,7 @@ namespace maze_concept
 
 
         public void DrawAvatar(Graphics g, string skin)
-        {
-            Pen Pen = Pens.Yellow;
-            Brush br = Brushes.Yellow;
+        {           
 
             width = 20;
             height = 20;

@@ -45,8 +45,8 @@ namespace maze_concept
 
         int Score;
 
-        public Image goalSkin;
-        //goalSkin = Properties.Resources.Avatar10;
+        public Image goalSkin = Properties.Resources.Avatar10;
+        
 
 
 
@@ -60,6 +60,9 @@ namespace maze_concept
             maze.DrawCells(g);
 
             avatar.DrawAvatar(g, skin);
+            
+
+
 
             goal.DrawGoal(g, goalSkin);
 

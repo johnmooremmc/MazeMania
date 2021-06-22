@@ -22,8 +22,7 @@ namespace maze_concept
 
         public Maze(int rows, int columns)
         {
-            int x;
-            int y;
+            
             Cells = new Cell[columns, rows];
             
             Rows = rows;
