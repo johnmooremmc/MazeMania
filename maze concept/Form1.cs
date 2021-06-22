@@ -200,11 +200,11 @@ namespace maze_concept
             pnlDraw.Invalidate();
 
             Random rand2 = new Random();
-            goal.x = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].x;
-            goal.y = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].y;
+            goal.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
+            goal.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
 
-            avatar.x = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].x;
-            avatar.y = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].y;
+            avatar.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
+            avatar.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
 
             Score = 0;
 
