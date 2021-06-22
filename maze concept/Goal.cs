@@ -17,8 +17,8 @@ namespace maze_concept
         public void DrawGoal(Graphics g, Image goalSkin)
         {
 
-            width = 20;
-            height = 20;
+            width = 45;
+            height = 45;
             
 
             g.DrawImage(goalSkin, x + 2, y + 2, width, height);

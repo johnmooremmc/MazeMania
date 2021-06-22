@@ -17,8 +17,10 @@ namespace maze_concept
         public void DrawAvatar(Graphics g, string skin)
         {           
 
-            width = 20;
-            height = 20;
+            width = 45;
+            height = 45;
+
+            
 
             g.DrawImage(avatarSkin, x+2, y+2, width, height);
 
