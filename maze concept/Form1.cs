@@ -22,16 +22,16 @@ namespace maze_concept
 
             Random rand = new Random();
 
-            maze = new Maze(20, 20);
+            maze = new Maze(10, 10);
             avatar = new Avatar();
             goal = new Goal();
             
 
-            avatar.x = maze.Cells[10 + rand.Next(-5,5), 10 + rand.Next(-5, 5)].x;
-            avatar.y = maze.Cells[10 + rand.Next(-5, 5), 10 + rand.Next(-5, 5)].y;
+            avatar.x = maze.Cells[ 5+ rand.Next(-5,5),  5+ rand.Next(-5, 5)].x;
+            avatar.y = maze.Cells[ 5+ rand.Next(-5, 5), 5+ rand.Next(-5, 5)].y;
 
-            goal.x = maze.Cells[10 + rand.Next(-5, 5), 10 + rand.Next(-5, 5)].x;
-            goal.y = maze.Cells[10 + rand.Next(-5, 5), 10 + rand.Next(-5, 5)].y;
+            goal.x = maze.Cells[ 5+ rand.Next(-5, 5),  5+ rand.Next(-5, 5)].x;
+            goal.y = maze.Cells[ 5+ rand.Next(-5, 5),  5+ rand.Next(-5, 5)].y;
 
 
         }
@@ -141,11 +141,11 @@ namespace maze_concept
             {
                 if (e.KeyCode == Keys.D)
                 {
-                    if (avatar.x / 25 < maze.Columns)
+                    if (avatar.x / 50 < maze.Columns)
                     {
-                        if (maze.Cells[avatar.x / 25, avatar.y / 25].rightwall != true)
+                        if (maze.Cells[avatar.x / 50, avatar.y / 50].rightwall != true)
                         {
-                            avatar.x = avatar.x + 25;
+                            avatar.x = avatar.x + 50;
                         }
                     }
 
@@ -153,33 +153,33 @@ namespace maze_concept
                 }
                 if (e.KeyCode == Keys.A)
                 {
-                    if ((avatar.x - 25) / 25 >= 0)
+                    if ((avatar.x - 50) / 50 >= 0)
                     {
-                        if (maze.Cells[avatar.x / 25 - 1, avatar.y / 25].rightwall != true)
+                        if (maze.Cells[avatar.x / 50 - 1, avatar.y / 50].rightwall != true)
                         {
-                            avatar.x = avatar.x - 25;
+                            avatar.x = avatar.x - 50;
                         }
                     }
 
                 }
                 if (e.KeyCode == Keys.W)
                 {
-                    if ((avatar.y - 25) / 25 >= 0)
+                    if ((avatar.y - 50) / 50 >= 0)
                     {
-                        if (maze.Cells[avatar.x / 25, (avatar.y / 25) - 1].bottomwall != true)
+                        if (maze.Cells[avatar.x / 50, (avatar.y / 50) - 1].bottomwall != true)
                         {
-                            avatar.y = avatar.y - 25;
+                            avatar.y = avatar.y - 50;
                         }
                     }
 
                 }
                 if (e.KeyCode == Keys.S)
                 {
-                    if (avatar.y / 25 < maze.Rows)
+                    if (avatar.y / 50 < maze.Rows)
                     {
-                        if (maze.Cells[avatar.x / 25, avatar.y / 25].bottomwall != true)
+                        if (maze.Cells[avatar.x / 50, avatar.y / 50].bottomwall != true)
                         {
-                            avatar.y = avatar.y + 25;
+                            avatar.y = avatar.y + 50;
                         }
                     }
 
@@ -293,8 +293,8 @@ namespace maze_concept
                 maze.GenerateMaze();
 
                 Random rand2 = new Random();
-                goal.x = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].x;
-                goal.y = maze.Cells[10 + rand2.Next(-5, 5), 10 + rand2.Next(-5, 5)].y;
+                goal.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
+                goal.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
 
 
                 pnlDraw.Refresh();

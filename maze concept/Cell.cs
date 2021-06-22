@@ -43,8 +43,8 @@ namespace maze_concept
     
         public Cell(int i, int j, bool wall)
         {
-            width = 25;
-            height = 25;
+            width = 50;
+            height = 50;
 
             x = i *width;
             y = j *height;
