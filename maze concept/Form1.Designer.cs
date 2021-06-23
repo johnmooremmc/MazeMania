@@ -244,7 +244,7 @@ namespace maze_concept
             // 
             // PBItems
             // 
-            this.PBItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.PBItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PBItems.Enabled = false;
             this.PBItems.Location = new System.Drawing.Point(-8, -2);
             this.PBItems.Name = "PBItems";
@@ -257,12 +257,12 @@ namespace maze_concept
             // lblScore
             // 
             this.lblScore.AutoSize = true;
-            this.lblScore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblScore.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore.ForeColor = System.Drawing.Color.Black;
             this.lblScore.Location = new System.Drawing.Point(12, 41);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(100, 25);
+            this.lblScore.Size = new System.Drawing.Size(96, 28);
             this.lblScore.TabIndex = 3;
             this.lblScore.Text = "Score: 0";
             this.lblScore.Visible = false;
@@ -271,12 +271,12 @@ namespace maze_concept
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.Black;
             this.lblUsername.Location = new System.Drawing.Point(156, 41);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(132, 25);
+            this.lblUsername.Size = new System.Drawing.Size(121, 27);
             this.lblUsername.TabIndex = 4;
             this.lblUsername.Text = "Username: ";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -286,12 +286,12 @@ namespace maze_concept
             // lblTime
             // 
             this.lblTime.AutoSize = true;
-            this.lblTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblTime.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.Black;
             this.lblTime.Location = new System.Drawing.Point(374, 41);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(143, 25);
+            this.lblTime.Size = new System.Drawing.Size(132, 27);
             this.lblTime.TabIndex = 5;
             this.lblTime.Text = "Time:  00:00";
             this.lblTime.Visible = false;
