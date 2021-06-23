@@ -45,6 +45,8 @@ namespace maze_concept
 
         int Score;
 
+        int timeLeft;
+        int gameTime = 20;
 
         bool currentSkin = false;
         public Image goalSkin = Properties.Resources.Avatar10;
@@ -71,7 +73,7 @@ namespace maze_concept
             {
 
             goal.DrawGoal(g, goalSkin);
-            }else
+            } else
             {
                 goal.DrawGoal(g, goalSkin2);
                 
@@ -96,12 +98,19 @@ namespace maze_concept
             btnStart.Visible = false;
             btnExit.Visible = false;
             mstOptions.Visible = true;
+            
+            lblScore.Visible = true;
+            lblTime.Visible = true;
+            lblUsername.Visible = true;
+            PBItems.Visible = true;
 
             btnStart.Enabled = false;
             btnExit.Enabled = false;
             mstOptions.Enabled = true;
 
+            timeLeft = gameTime;
             playing = true;
+            tmrAvatar.Enabled = true;
 
             maze.GenerateMaze();
 
@@ -139,7 +148,15 @@ namespace maze_concept
 
         private void tmrAvatar_Tick(object sender, EventArgs e)
         {
-            
+            if (playing)
+            {
+                timeLeft -= 1;
+                lblTime.Text = "Time: " + timeLeft.ToString();
+                if(timeLeft <= 0)
+                {
+                    playing = false;
+                }
+            }
         }
 
         private void MazeMania_KeyPress(object sender, KeyPressEventArgs e)
@@ -221,8 +238,12 @@ namespace maze_concept
             avatar.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
 
             Score = 0;
+            lblScore.Text = "Score: " + Score.ToString();
 
-           
+            timeLeft = gameTime;
+            lblTime.Text = "Time: " + timeLeft.ToString();
+            playing = true;
+
 
         }
 
@@ -320,9 +341,29 @@ namespace maze_concept
                 
                 
                 Score += 1;
-
+                lblScore.Text = "Score: " + Score.ToString();
 
             }
+
+        }
+
+        private void PBItems_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblScore_Click(object sender, EventArgs e)
+        {
 
         }
     }

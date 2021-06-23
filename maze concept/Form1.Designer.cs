@@ -51,9 +51,14 @@ namespace maze_concept
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrAvatar = new System.Windows.Forms.Timer(this.components);
+            this.PBItems = new System.Windows.Forms.PictureBox();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.pnlDraw.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBMenu)).BeginInit();
             this.mstOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBItems)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDraw
@@ -61,9 +66,9 @@ namespace maze_concept
             this.pnlDraw.Controls.Add(this.btnExit);
             this.pnlDraw.Controls.Add(this.btnStart);
             this.pnlDraw.Controls.Add(this.PBMenu);
-            this.pnlDraw.Location = new System.Drawing.Point(12, 33);
+            this.pnlDraw.Location = new System.Drawing.Point(12, 83);
             this.pnlDraw.Name = "pnlDraw";
-            this.pnlDraw.Size = new System.Drawing.Size(521, 545);
+            this.pnlDraw.Size = new System.Drawing.Size(505, 567);
             this.pnlDraw.TabIndex = 0;
             this.pnlDraw.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDraw_paint);
             // 
@@ -72,9 +77,9 @@ namespace maze_concept
             this.btnExit.BackColor = System.Drawing.Color.DarkBlue;
             this.btnExit.Font = new System.Drawing.Font("Bahnschrift Condensed", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.Yellow;
-            this.btnExit.Location = new System.Drawing.Point(30, 396);
+            this.btnExit.Location = new System.Drawing.Point(39, 402);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(163, 71);
+            this.btnExit.Size = new System.Drawing.Size(151, 79);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -87,9 +92,9 @@ namespace maze_concept
             this.btnStart.BackColor = System.Drawing.Color.DarkBlue;
             this.btnStart.Font = new System.Drawing.Font("Bahnschrift Condensed", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.Yellow;
-            this.btnStart.Location = new System.Drawing.Point(30, 299);
+            this.btnStart.Location = new System.Drawing.Point(39, 291);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(163, 71);
+            this.btnStart.Size = new System.Drawing.Size(151, 79);
             this.btnStart.TabIndex = 1;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
@@ -101,9 +106,9 @@ namespace maze_concept
             // 
             this.PBMenu.Image = ((System.Drawing.Image)(resources.GetObject("PBMenu.Image")));
             this.PBMenu.InitialImage = ((System.Drawing.Image)(resources.GetObject("PBMenu.InitialImage")));
-            this.PBMenu.Location = new System.Drawing.Point(-11, -53);
+            this.PBMenu.Location = new System.Drawing.Point(0, -113);
             this.PBMenu.Name = "PBMenu";
-            this.PBMenu.Size = new System.Drawing.Size(545, 595);
+            this.PBMenu.Size = new System.Drawing.Size(505, 680);
             this.PBMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PBMenu.TabIndex = 0;
             this.PBMenu.TabStop = false;
@@ -117,7 +122,7 @@ namespace maze_concept
             this.restartToolStripMenuItem});
             this.mstOptions.Location = new System.Drawing.Point(0, 0);
             this.mstOptions.Name = "mstOptions";
-            this.mstOptions.Size = new System.Drawing.Size(545, 24);
+            this.mstOptions.Size = new System.Drawing.Size(529, 24);
             this.mstOptions.TabIndex = 1;
             this.mstOptions.Text = "menuStrip1";
             this.mstOptions.Visible = false;
@@ -234,16 +239,76 @@ namespace maze_concept
             // 
             // tmrAvatar
             // 
+            this.tmrAvatar.Interval = 1000;
             this.tmrAvatar.Tick += new System.EventHandler(this.tmrAvatar_Tick);
+            // 
+            // PBItems
+            // 
+            this.PBItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.PBItems.Enabled = false;
+            this.PBItems.Location = new System.Drawing.Point(-8, -2);
+            this.PBItems.Name = "PBItems";
+            this.PBItems.Size = new System.Drawing.Size(556, 79);
+            this.PBItems.TabIndex = 2;
+            this.PBItems.TabStop = false;
+            this.PBItems.Visible = false;
+            this.PBItems.Click += new System.EventHandler(this.PBItems_Click);
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.ForeColor = System.Drawing.Color.Black;
+            this.lblScore.Location = new System.Drawing.Point(12, 41);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(100, 25);
+            this.lblScore.TabIndex = 3;
+            this.lblScore.Text = "Score: 0";
+            this.lblScore.Visible = false;
+            this.lblScore.Click += new System.EventHandler(this.lblScore_Click);
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.Color.Black;
+            this.lblUsername.Location = new System.Drawing.Point(156, 41);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(132, 25);
+            this.lblUsername.TabIndex = 4;
+            this.lblUsername.Text = "Username: ";
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblUsername.Visible = false;
+            this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.Black;
+            this.lblTime.Location = new System.Drawing.Point(374, 41);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(143, 25);
+            this.lblTime.TabIndex = 5;
+            this.lblTime.Text = "Time:  00:00";
+            this.lblTime.Visible = false;
+            this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
             // 
             // MazeMania
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(545, 579);
-            this.Controls.Add(this.pnlDraw);
+            this.ClientSize = new System.Drawing.Size(529, 662);
+            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.lblScore);
+            this.Controls.Add(this.PBItems);
             this.Controls.Add(this.mstOptions);
+            this.Controls.Add(this.pnlDraw);
             this.MainMenuStrip = this.mstOptions;
             this.Name = "MazeMania";
             this.Text = "MazeMania";
@@ -254,6 +319,7 @@ namespace maze_concept
             ((System.ComponentModel.ISupportInitialize)(this.PBMenu)).EndInit();
             this.mstOptions.ResumeLayout(false);
             this.mstOptions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,6 +347,10 @@ namespace maze_concept
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Timer tmrAvatar;
+        private System.Windows.Forms.PictureBox PBItems;
+        private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblTime;
     }
 }
 
