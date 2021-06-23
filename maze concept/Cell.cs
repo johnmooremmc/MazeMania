@@ -10,7 +10,7 @@ namespace maze_concept
 {
     class Cell
     {
-
+        
         public int width, height;
         public int x, y;
 
@@ -22,10 +22,12 @@ namespace maze_concept
         internal void DrawCells(Graphics g)
         {
 
-            Pen Pen = Pens.Orange;
-            
+            Pen Pen = new Pen(Color.Orange);
 
-           if (rightwall)
+            Pen.Width = 2;
+
+
+            if (rightwall)
             {
                 g.DrawLine(Pen, x + width, y, x + width, y + height);
 

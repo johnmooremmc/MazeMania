@@ -45,8 +45,11 @@ namespace maze_concept
 
         int Score;
 
+
+        bool currentSkin = false;
         public Image goalSkin = Properties.Resources.Avatar10;
-        
+        public Image goalSkin2 = Properties.Resources.Avatar8;
+
 
 
 
@@ -63,8 +66,16 @@ namespace maze_concept
             
 
 
+            
+            if (currentSkin)
+            {
 
             goal.DrawGoal(g, goalSkin);
+            }else
+            {
+                goal.DrawGoal(g, goalSkin2);
+                
+            }
 
             CheckConditions();
 
@@ -195,6 +206,9 @@ namespace maze_concept
 
         private void restartToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            currentSkin = !currentSkin;
+
             pnlDraw.Refresh();
             maze.GenerateMaze();
             pnlDraw.Invalidate();
@@ -207,6 +221,8 @@ namespace maze_concept
             avatar.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
 
             Score = 0;
+
+           
 
         }
 
@@ -296,6 +312,7 @@ namespace maze_concept
                 goal.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
                 goal.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
 
+                currentSkin = !currentSkin;
 
                 pnlDraw.Refresh();
                 pnlDraw.Invalidate();
