@@ -212,6 +212,52 @@ namespace maze_concept
                     }
 
                 }
+
+                if (e.KeyCode == Keys.Right)
+                {
+                    if (avatar.x / 50 < maze.Columns)
+                    {
+                        if (maze.Cells[avatar.x / 50, avatar.y / 50].rightwall != true)
+                        {
+                            avatar.x = avatar.x + 50;
+                        }
+                    }
+
+
+                }
+                if (e.KeyCode == Keys.Left)
+                {
+                    if ((avatar.x - 50) / 50 >= 0)
+                    {
+                        if (maze.Cells[avatar.x / 50 - 1, avatar.y / 50].rightwall != true)
+                        {
+                            avatar.x = avatar.x - 50;
+                        }
+                    }
+
+                }
+                if (e.KeyCode == Keys.Up)
+                {
+                    if ((avatar.y - 50) / 50 >= 0)
+                    {
+                        if (maze.Cells[avatar.x / 50, (avatar.y / 50) - 1].bottomwall != true)
+                        {
+                            avatar.y = avatar.y - 50;
+                        }
+                    }
+
+                }
+                if (e.KeyCode == Keys.Down)
+                {
+                    if (avatar.y / 50 < maze.Rows)
+                    {
+                        if (maze.Cells[avatar.x / 50, avatar.y / 50].bottomwall != true)
+                        {
+                            avatar.y = avatar.y + 50;
+                        }
+                    }
+
+                }
                 pnlDraw.Invalidate();
             }
             }
