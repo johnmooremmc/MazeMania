@@ -36,7 +36,7 @@ namespace maze_concept
 
         }
 
-        
+
         private Maze maze;
         private Avatar avatar;
         private Goal goal;
@@ -46,7 +46,7 @@ namespace maze_concept
         int Score;
 
         int timeLeft;
-        int gameTime = 20;
+        int gameTime = 30;
 
         bool currentSkin = false;
         public Image goalSkin = Properties.Resources.Avatar10;
