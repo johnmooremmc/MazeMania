@@ -312,6 +312,7 @@ namespace maze_concept
             this.MainMenuStrip = this.mstOptions;
             this.Name = "MazeMania";
             this.Text = "MazeMania";
+            this.Load += new System.EventHandler(this.MazeMania_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MazeMania_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MazeMania_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MazeMania_KeyUp);
