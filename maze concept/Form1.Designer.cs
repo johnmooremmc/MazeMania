@@ -34,7 +34,6 @@ namespace maze_concept
             this.pnlDraw = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
-            this.PBMenu = new System.Windows.Forms.PictureBox();
             this.mstOptions = new System.Windows.Forms.MenuStrip();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,18 +50,28 @@ namespace maze_concept
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrAvatar = new System.Windows.Forms.Timer(this.components);
-            this.PBItems = new System.Windows.Forms.PictureBox();
             this.lblScore = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
+            this.lblHighscore1 = new System.Windows.Forms.Label();
+            this.btnUsername = new System.Windows.Forms.Button();
+            this.PBItems = new System.Windows.Forms.PictureBox();
+            this.PBMenu = new System.Windows.Forms.PictureBox();
+            this.PBusernamescreen = new System.Windows.Forms.PictureBox();
+            this.txtBusername = new System.Windows.Forms.TextBox();
             this.pnlDraw.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PBMenu)).BeginInit();
             this.mstOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBusernamescreen)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDraw
             // 
+            this.pnlDraw.Controls.Add(this.txtBusername);
+            this.pnlDraw.Controls.Add(this.btnUsername);
+            this.pnlDraw.Controls.Add(this.PBusernamescreen);
+            this.pnlDraw.Controls.Add(this.lblHighscore1);
             this.pnlDraw.Controls.Add(this.btnExit);
             this.pnlDraw.Controls.Add(this.btnStart);
             this.pnlDraw.Controls.Add(this.PBMenu);
@@ -101,17 +110,6 @@ namespace maze_concept
             this.btnStart.Click += new System.EventHandler(this.button1_Click);
             this.btnStart.MouseLeave += new System.EventHandler(this.btnStart_MouseLeave);
             this.btnStart.MouseHover += new System.EventHandler(this.btnStart_MouseHover);
-            // 
-            // PBMenu
-            // 
-            this.PBMenu.Image = ((System.Drawing.Image)(resources.GetObject("PBMenu.Image")));
-            this.PBMenu.InitialImage = ((System.Drawing.Image)(resources.GetObject("PBMenu.InitialImage")));
-            this.PBMenu.Location = new System.Drawing.Point(0, -113);
-            this.PBMenu.Name = "PBMenu";
-            this.PBMenu.Size = new System.Drawing.Size(505, 680);
-            this.PBMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PBMenu.TabIndex = 0;
-            this.PBMenu.TabStop = false;
             // 
             // mstOptions
             // 
@@ -242,18 +240,6 @@ namespace maze_concept
             this.tmrAvatar.Interval = 1000;
             this.tmrAvatar.Tick += new System.EventHandler(this.tmrAvatar_Tick);
             // 
-            // PBItems
-            // 
-            this.PBItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.PBItems.Enabled = false;
-            this.PBItems.Location = new System.Drawing.Point(-8, -2);
-            this.PBItems.Name = "PBItems";
-            this.PBItems.Size = new System.Drawing.Size(556, 79);
-            this.PBItems.TabIndex = 2;
-            this.PBItems.TabStop = false;
-            this.PBItems.Visible = false;
-            this.PBItems.Click += new System.EventHandler(this.PBItems_Click);
-            // 
             // lblScore
             // 
             this.lblScore.AutoSize = true;
@@ -297,6 +283,76 @@ namespace maze_concept
             this.lblTime.Visible = false;
             this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
             // 
+            // lblHighscore1
+            // 
+            this.lblHighscore1.AutoSize = true;
+            this.lblHighscore1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHighscore1.ForeColor = System.Drawing.Color.Red;
+            this.lblHighscore1.Location = new System.Drawing.Point(2, 511);
+            this.lblHighscore1.Name = "lblHighscore1";
+            this.lblHighscore1.Size = new System.Drawing.Size(12, 16);
+            this.lblHighscore1.TabIndex = 3;
+            this.lblHighscore1.Text = "\'";
+            this.lblHighscore1.Visible = false;
+            this.lblHighscore1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // btnUsername
+            // 
+            this.btnUsername.Enabled = false;
+            this.btnUsername.Location = new System.Drawing.Point(126, 241);
+            this.btnUsername.Name = "btnUsername";
+            this.btnUsername.Size = new System.Drawing.Size(225, 44);
+            this.btnUsername.TabIndex = 4;
+            this.btnUsername.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnUsername.UseVisualStyleBackColor = true;
+            this.btnUsername.Visible = false;
+            this.btnUsername.Click += new System.EventHandler(this.btnUsername_Click);
+            // 
+            // PBItems
+            // 
+            this.PBItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PBItems.Enabled = false;
+            this.PBItems.Location = new System.Drawing.Point(-8, -2);
+            this.PBItems.Name = "PBItems";
+            this.PBItems.Size = new System.Drawing.Size(556, 79);
+            this.PBItems.TabIndex = 2;
+            this.PBItems.TabStop = false;
+            this.PBItems.Visible = false;
+            this.PBItems.Click += new System.EventHandler(this.PBItems_Click);
+            // 
+            // PBMenu
+            // 
+            this.PBMenu.Image = ((System.Drawing.Image)(resources.GetObject("PBMenu.Image")));
+            this.PBMenu.InitialImage = ((System.Drawing.Image)(resources.GetObject("PBMenu.InitialImage")));
+            this.PBMenu.Location = new System.Drawing.Point(0, -113);
+            this.PBMenu.Name = "PBMenu";
+            this.PBMenu.Size = new System.Drawing.Size(505, 680);
+            this.PBMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBMenu.TabIndex = 0;
+            this.PBMenu.TabStop = false;
+            // 
+            // PBusernamescreen
+            // 
+            this.PBusernamescreen.BackColor = System.Drawing.Color.Black;
+            this.PBusernamescreen.Image = global::maze_concept.Properties.Resources.Username_input;
+            this.PBusernamescreen.Location = new System.Drawing.Point(-4, -71);
+            this.PBusernamescreen.Name = "PBusernamescreen";
+            this.PBusernamescreen.Size = new System.Drawing.Size(506, 670);
+            this.PBusernamescreen.TabIndex = 5;
+            this.PBusernamescreen.TabStop = false;
+            this.PBusernamescreen.Visible = false;
+            this.PBusernamescreen.Click += new System.EventHandler(this.PBusernamescreen_Click);
+            // 
+            // txtBusername
+            // 
+            this.txtBusername.Location = new System.Drawing.Point(126, 119);
+            this.txtBusername.MaxLength = 16;
+            this.txtBusername.Name = "txtBusername";
+            this.txtBusername.Size = new System.Drawing.Size(225, 20);
+            this.txtBusername.TabIndex = 6;
+            this.txtBusername.Visible = false;
+            this.txtBusername.TextChanged += new System.EventHandler(this.txtBusername_TextChanged);
+            // 
             // MazeMania
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,10 +373,12 @@ namespace maze_concept
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MazeMania_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MazeMania_KeyUp);
             this.pnlDraw.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PBMenu)).EndInit();
+            this.pnlDraw.PerformLayout();
             this.mstOptions.ResumeLayout(false);
             this.mstOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBusernamescreen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,6 +410,10 @@ namespace maze_concept
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label lblHighscore1;
+        private System.Windows.Forms.Button btnUsername;
+        private System.Windows.Forms.PictureBox PBusernamescreen;
+        private System.Windows.Forms.TextBox txtBusername;
     }
 }
 

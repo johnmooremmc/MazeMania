@@ -51,6 +51,8 @@ namespace maze_concept
         public Image goalSkin = Properties.Resources.Avatar10;
         public Image goalSkin2 = Properties.Resources.Avatar8;
 
+        string username;
+
 
 
 
@@ -97,22 +99,15 @@ namespace maze_concept
             PBMenu.Visible = false;
             btnStart.Visible = false;
             btnExit.Visible = false;
-            mstOptions.Visible = true;
-            
-            lblScore.Visible = true;
-            lblTime.Visible = true;
-            lblUsername.Visible = true;
-            PBItems.Visible = true;
 
-            btnStart.Enabled = false;
-            btnExit.Enabled = false;
-            mstOptions.Enabled = true;
+            btnUsername.Visible = true;
+            btnUsername.Enabled = true;
+            PBusernamescreen.Visible = true;
 
-            timeLeft = gameTime;
-            playing = true;
-            tmrAvatar.Enabled = true;
+            txtBusername.Visible = true;
+            txtBusername.Enabled = true;
+            txtBusername.BringToFront();
 
-            maze.GenerateMaze();
 
         }
 
@@ -416,6 +411,67 @@ namespace maze_concept
         private void MazeMania_Load(object sender, EventArgs e)
         {
             MessageBox.Show("Welcome to Maze Mania, Within this game your goal is to collect as much Treasure as you can before the timer runs out. \n \n \n Using W A S D, or the arrow keys you will navigate through the randomly generated mazes.");
+            
+            //lblHighscore1.Text = username textfromsavefile + Score textfromsavefile
+        
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUsername_Click(object sender, EventArgs e)
+        {
+
+            txtBusername.Visible = false;
+            txtBusername.Enabled = false;
+
+            PBusernamescreen.Visible = false;
+            btnUsername.Visible = false;
+            btnUsername.Enabled = false;
+
+            mstOptions.Visible = true;
+
+            lblScore.Visible = true;
+            lblTime.Visible = true;
+            lblUsername.Visible = true;
+            PBItems.Visible = true;
+            lblHighscore1.Visible = true;
+
+            btnStart.Enabled = false;
+            btnExit.Enabled = false;
+            mstOptions.Enabled = true;
+
+            timeLeft = gameTime;
+            playing = true;
+            tmrAvatar.Enabled = true;
+
+            lblUsername.Text = username;
+
+            maze.GenerateMaze();
+
+            pnlDraw.Invalidate();
+        }
+
+        private void PBusernamescreen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBusername_TextChanged(object sender, EventArgs e)
+        {
+            username = txtBusername.Text;
+
+            if(txtBusername.Text == "")
+            {
+                btnUsername.Enabled = false;
+            }
+
+            if(txtBusername.Text != "")
+            {
+                btnUsername.Enabled = true;
+            }
         }
     }
 }
