@@ -25,6 +25,7 @@ namespace maze_concept
             maze = new Maze(10, 10);
             avatar = new Avatar();
             goal = new Goal();
+            HighScores = new HighScores();
             
 
             avatar.x = maze.Cells[ 5+ rand.Next(-5,5),  5+ rand.Next(-5, 5)].x;
@@ -39,13 +40,15 @@ namespace maze_concept
         private Maze maze;
         private Avatar avatar;
         private Goal goal;
+        private HighScores HighScores;
+
         bool playing = false;
         string skin = "1";
 
         int Score;
 
         int timeLeft;
-        int gameTime = 30;
+        int gameTime = 5;
 
         bool currentSkin = false;
         public Image goalSkin = Properties.Resources.Avatar10;
@@ -100,6 +103,10 @@ namespace maze_concept
             btnStart.Visible = false;
             btnExit.Visible = false;
 
+            LBhighscores.Visible = false;
+            LBhighscores.Enabled = false;
+
+
             btnUsername.Visible = true;
             btnUsername.Enabled = true;
             PBusernamescreen.Visible = true;
@@ -150,6 +157,7 @@ namespace maze_concept
                 if(timeLeft <= 0)
                 {
                     playing = false;
+                    HighScores.UpdateHighScore(username, Score);
                 }
             }
         }
@@ -437,7 +445,6 @@ namespace maze_concept
             lblTime.Visible = true;
             lblUsername.Visible = true;
             PBItems.Visible = true;
-            lblHighscore1.Visible = true;
 
             btnStart.Enabled = false;
             btnExit.Enabled = false;
@@ -472,6 +479,11 @@ namespace maze_concept
             {
                 btnUsername.Enabled = true;
             }
+        }
+
+        private void LBhighscores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

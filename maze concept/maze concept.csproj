@@ -55,6 +55,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Goal.cs" />
+    <Compile Include="HighScores.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
