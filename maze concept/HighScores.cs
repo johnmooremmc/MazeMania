@@ -66,7 +66,11 @@ namespace maze_concept
 
             foreach(var (names,score2) in HighScoreList)
             {
-                ((MazeMania)MazeMania.ActiveForm).LBhighscores.Items.Add(names.PadRight(10) + score2);
+                if (ActiveForm == MazeMania.ActiveForm)
+
+                {
+                    ((MazeMania)MazeMania.ActiveForm).LBhighscores.Items.Add(names.PadRight(10) + score2);
+                }
             }
 
 
@@ -75,7 +79,7 @@ namespace maze_concept
 
         }
 
-
+        
 
 
 

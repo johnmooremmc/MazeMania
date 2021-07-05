@@ -84,9 +84,9 @@ namespace maze_concept
             // LBhighscores
             // 
             this.LBhighscores.FormattingEnabled = true;
-            this.LBhighscores.Location = new System.Drawing.Point(25, 495);
+            this.LBhighscores.Location = new System.Drawing.Point(108, 496);
             this.LBhighscores.Name = "LBhighscores";
-            this.LBhighscores.Size = new System.Drawing.Size(410, 69);
+            this.LBhighscores.Size = new System.Drawing.Size(386, 56);
             this.LBhighscores.TabIndex = 7;
             this.LBhighscores.SelectedIndexChanged += new System.EventHandler(this.LBhighscores_SelectedIndexChanged);
             // 

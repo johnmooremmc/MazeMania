@@ -67,6 +67,7 @@ namespace maze_concept
 
             mstOptions.BringToFront();
 
+            HighScores.UpdateHighScore(username, Score);
 
             //lblHighscore1.Text = username textfromsavefile + Score textfromsavefile
 
