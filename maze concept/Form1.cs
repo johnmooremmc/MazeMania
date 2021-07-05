@@ -48,18 +48,32 @@ namespace maze_concept
         int Score;
 
         int timeLeft;
-        int gameTime = 5;
+        int gameTime = 30;
 
         bool currentSkin = false;
         public Image goalSkin = Properties.Resources.Avatar10;
         public Image goalSkin2 = Properties.Resources.Avatar8;
 
         string username;
+        bool btnUserSpace = false;
 
 
 
 
-        
+
+        private void MazeMania_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Welcome to Maze Mania, Within this game your goal is to collect as much Treasure as you can before the timer runs out. \n \n \n Using W A S D, or the arrow keys you will navigate through the randomly generated mazes.");
+
+            mstOptions.BringToFront();
+
+
+            //lblHighscore1.Text = username textfromsavefile + Score textfromsavefile
+
+        }
+
+
+
 
         private void pnlDraw_paint(object sender, PaintEventArgs e)
         {
@@ -216,7 +230,7 @@ namespace maze_concept
 
                 }
 
-                if (e.KeyCode == Keys.Right)
+                if (e.KeyCode == Keys.Right) 
                 {
                     if (avatar.x / 50 < maze.Columns)
                     {
@@ -416,14 +430,6 @@ namespace maze_concept
 
         }
 
-        private void MazeMania_Load(object sender, EventArgs e)
-        {
-            MessageBox.Show("Welcome to Maze Mania, Within this game your goal is to collect as much Treasure as you can before the timer runs out. \n \n \n Using W A S D, or the arrow keys you will navigate through the randomly generated mazes.");
-            
-            //lblHighscore1.Text = username textfromsavefile + Score textfromsavefile
-        
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -431,34 +437,37 @@ namespace maze_concept
 
         private void btnUsername_Click(object sender, EventArgs e)
         {
-
+            if (btnUserSpace) 
+            {
+                
             txtBusername.Visible = false;
-            txtBusername.Enabled = false;
+                txtBusername.Enabled = false;
 
-            PBusernamescreen.Visible = false;
-            btnUsername.Visible = false;
-            btnUsername.Enabled = false;
+                PBusernamescreen.Visible = false;
+                btnUsername.Visible = false;
+                btnUsername.Enabled = false;
 
-            mstOptions.Visible = true;
+                mstOptions.Visible = true;
 
-            lblScore.Visible = true;
-            lblTime.Visible = true;
-            lblUsername.Visible = true;
-            PBItems.Visible = true;
+                lblScore.Visible = true;
+                lblTime.Visible = true;
+                lblUsername.Visible = true;
+                PBItems.Visible = true;
 
-            btnStart.Enabled = false;
-            btnExit.Enabled = false;
-            mstOptions.Enabled = true;
+                btnStart.Enabled = false;
+                btnExit.Enabled = false;
+                mstOptions.Enabled = true;
 
-            timeLeft = gameTime;
-            playing = true;
-            tmrAvatar.Enabled = true;
+                timeLeft = gameTime;
+                playing = true;
+                tmrAvatar.Enabled = true;
 
-            lblUsername.Text = username;
+                lblUsername.Text = username;
 
-            maze.GenerateMaze();
+                maze.GenerateMaze();
 
-            pnlDraw.Invalidate();
+                pnlDraw.Invalidate();
+            }
         }
 
         private void PBusernamescreen_Click(object sender, EventArgs e)
@@ -473,13 +482,18 @@ namespace maze_concept
             if(txtBusername.Text == "")
             {
                 btnUsername.Enabled = false;
+                btnUserSpace = false;
             }
 
             if(txtBusername.Text != "")
             {
                 btnUsername.Enabled = true;
+                btnUserSpace = true;
+
             }
         }
+
+        
 
         private void LBhighscores_SelectedIndexChanged(object sender, EventArgs e)
         {
