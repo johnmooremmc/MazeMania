@@ -500,5 +500,33 @@ namespace maze_concept
         {
             
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (playing)
+            {
+                if (Score <= 4)
+                {
+                    pnlDraw.Refresh();
+                    maze.GenerateMaze();
+                    pnlDraw.Invalidate();
+
+                    Random rand2 = new Random();
+                    goal.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
+                    goal.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
+
+                    avatar.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
+                    avatar.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
+
+                    Score = 0;
+                    lblScore.Text = "Score: " + Score.ToString();
+
+                    timeLeft = gameTime;
+                    lblTime.Text = "Time: " + timeLeft.ToString();
+                    playing = true;
+                }
+
+            }
+        }
     }
 }
