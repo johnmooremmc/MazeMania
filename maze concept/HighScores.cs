@@ -14,10 +14,13 @@ namespace maze_concept
 {
     class HighScores
     {
+
+        
         public void UpdateHighScore(string username, int Score)
         {
             StreamWriter writer;
             StreamReader reader;
+
 
 
             string binPath = Application.StartupPath + @"\HighScores.txt";
@@ -64,13 +67,13 @@ namespace maze_concept
 
             HighScoreList = HighScoreList.OrderByDescending(x => x.Item2).Take(10).ToList();
 
-            foreach(var (names,score2) in HighScoreList)
+            // if (MazeMania.ActiveForm != null)
+            //{ 
+            foreach (var (names,score2) in HighScoreList)
             {
-                if (MazeMania.ActiveForm != null)
-                {
-                    ((MazeMania)MazeMania.ActiveForm).LBhighscores.Items.Add(names.PadRight(10) + score2);
-                }
+                ((MazeMania)MazeMania.ActiveForm).LBhighscores.Items.Add(names.PadRight(10) + score2);
             }
+            // }
 
 
 

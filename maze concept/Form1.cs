@@ -63,7 +63,7 @@ namespace maze_concept
 
         private void MazeMania_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Welcome to Maze Mania, Within this game your goal is to collect as much Treasure as you can before the timer runs out. \n \n \n Using W A S D, or the arrow keys you will navigate through the randomly generated mazes.");
+           // MessageBox.Show("Welcome to Maze Mania, Within this game your goal is to collect as much Treasure as you can before the timer runs out. \n \n \n Using W A S D, or the arrow keys you will navigate through the randomly generated mazes.");
 
             mstOptions.BringToFront();
 
@@ -505,7 +505,7 @@ namespace maze_concept
         {
             if (playing)
             {
-                if (Score <= 4)
+                if (Score <= -1)
                 {
                     pnlDraw.Refresh();
                     maze.GenerateMaze();
