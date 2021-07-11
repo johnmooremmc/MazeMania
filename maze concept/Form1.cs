@@ -194,6 +194,8 @@ namespace maze_concept
                             avatar.x = avatar.x + 50;
                         }
                     }
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
 
 
                 }
@@ -206,6 +208,8 @@ namespace maze_concept
                             avatar.x = avatar.x - 50;
                         }
                     }
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
 
                 }
                 if (e.KeyCode == Keys.W)
@@ -217,6 +221,8 @@ namespace maze_concept
                             avatar.y = avatar.y - 50;
                         }
                     }
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
 
                 }
                 if (e.KeyCode == Keys.S)
@@ -228,6 +234,8 @@ namespace maze_concept
                             avatar.y = avatar.y + 50;
                         }
                     }
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
 
                 }
 
@@ -240,6 +248,8 @@ namespace maze_concept
                             avatar.x = avatar.x + 50;
                         }
                     }
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
 
 
                 }
@@ -252,6 +262,8 @@ namespace maze_concept
                             avatar.x = avatar.x - 50;
                         }
                     }
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
 
                 }
                 if (e.KeyCode == Keys.Up)
@@ -263,7 +275,8 @@ namespace maze_concept
                             avatar.y = avatar.y - 50;
                         }
                     }
-
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
                 }
                 if (e.KeyCode == Keys.Down)
                 {
@@ -274,6 +287,8 @@ namespace maze_concept
                             avatar.y = avatar.y + 50;
                         }
                     }
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
 
                 }
                 pnlDraw.Invalidate();
