@@ -94,10 +94,11 @@ namespace maze_concept
             // txtBusername
             // 
             this.txtBusername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.txtBusername.Location = new System.Drawing.Point(108, 116);
+            this.txtBusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusername.Location = new System.Drawing.Point(108, 102);
             this.txtBusername.MaxLength = 16;
             this.txtBusername.Name = "txtBusername";
-            this.txtBusername.Size = new System.Drawing.Size(245, 20);
+            this.txtBusername.Size = new System.Drawing.Size(245, 44);
             this.txtBusername.TabIndex = 6;
             this.txtBusername.Visible = false;
             this.txtBusername.TextChanged += new System.EventHandler(this.txtBusername_TextChanged);
