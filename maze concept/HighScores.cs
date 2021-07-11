@@ -67,13 +67,15 @@ namespace maze_concept
 
             HighScoreList = HighScoreList.OrderByDescending(x => x.Item2).Take(10).ToList();
 
-            // if (MazeMania.ActiveForm != null)
-            //{ 
+            
             foreach (var (names,score2) in HighScoreList)
             {
-               //((MazeMania)MazeMania.ActiveForm).LBhighscores.Items.Add(names.PadRight(10) + score2);
+               // MazeMania.UpdateListBox(names, score2);
+
+                Console.WriteLine(names + " :  " + score2);
+
             }
-            // }
+            
 
 
 

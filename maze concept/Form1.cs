@@ -528,5 +528,17 @@ namespace maze_concept
 
             }
         }
+
+        public void UpdateListBox(string names, int score2)
+        {
+            LBhighscores.Items.Add(names + " - " + score2.ToString());
+
+
+        }
+
+
+
+
+
     }
 }
