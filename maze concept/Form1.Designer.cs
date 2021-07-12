@@ -35,8 +35,10 @@ namespace maze_concept
             this.LBhighscores = new System.Windows.Forms.ListBox();
             this.txtBusername = new System.Windows.Forms.TextBox();
             this.btnUsername = new System.Windows.Forms.Button();
+            this.PBusernamescreen = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
+            this.PBMenu = new System.Windows.Forms.PictureBox();
             this.mstOptions = new System.Windows.Forms.MenuStrip();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,18 +59,22 @@ namespace maze_concept
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.PBusernamescreen = new System.Windows.Forms.PictureBox();
-            this.PBMenu = new System.Windows.Forms.PictureBox();
             this.PBItems = new System.Windows.Forms.PictureBox();
+            this.lblGameOver = new System.Windows.Forms.Label();
+            this.lblGameOverScore = new System.Windows.Forms.Label();
+            this.lblSignalRestart = new System.Windows.Forms.Label();
             this.pnlDraw.SuspendLayout();
-            this.mstOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBusernamescreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMenu)).BeginInit();
+            this.mstOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBItems)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDraw
             // 
+            this.pnlDraw.Controls.Add(this.lblSignalRestart);
+            this.pnlDraw.Controls.Add(this.lblGameOver);
+            this.pnlDraw.Controls.Add(this.lblGameOverScore);
             this.pnlDraw.Controls.Add(this.LBhighscores);
             this.pnlDraw.Controls.Add(this.txtBusername);
             this.pnlDraw.Controls.Add(this.btnUsername);
@@ -117,6 +123,18 @@ namespace maze_concept
             this.btnUsername.Visible = false;
             this.btnUsername.Click += new System.EventHandler(this.btnUsername_Click);
             // 
+            // PBusernamescreen
+            // 
+            this.PBusernamescreen.BackColor = System.Drawing.Color.Black;
+            this.PBusernamescreen.Image = global::maze_concept.Properties.Resources.Username_input;
+            this.PBusernamescreen.Location = new System.Drawing.Point(-20, -71);
+            this.PBusernamescreen.Name = "PBusernamescreen";
+            this.PBusernamescreen.Size = new System.Drawing.Size(544, 638);
+            this.PBusernamescreen.TabIndex = 5;
+            this.PBusernamescreen.TabStop = false;
+            this.PBusernamescreen.Visible = false;
+            this.PBusernamescreen.Click += new System.EventHandler(this.PBusernamescreen_Click);
+            // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.DarkBlue;
@@ -146,6 +164,17 @@ namespace maze_concept
             this.btnStart.Click += new System.EventHandler(this.button1_Click);
             this.btnStart.MouseLeave += new System.EventHandler(this.btnStart_MouseLeave);
             this.btnStart.MouseHover += new System.EventHandler(this.btnStart_MouseHover);
+            // 
+            // PBMenu
+            // 
+            this.PBMenu.Image = ((System.Drawing.Image)(resources.GetObject("PBMenu.Image")));
+            this.PBMenu.InitialImage = ((System.Drawing.Image)(resources.GetObject("PBMenu.InitialImage")));
+            this.PBMenu.Location = new System.Drawing.Point(0, -116);
+            this.PBMenu.Name = "PBMenu";
+            this.PBMenu.Size = new System.Drawing.Size(508, 680);
+            this.PBMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBMenu.TabIndex = 0;
+            this.PBMenu.TabStop = false;
             // 
             // mstOptions
             // 
@@ -325,29 +354,6 @@ namespace maze_concept
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // PBusernamescreen
-            // 
-            this.PBusernamescreen.BackColor = System.Drawing.Color.Black;
-            this.PBusernamescreen.Image = global::maze_concept.Properties.Resources.Username_input;
-            this.PBusernamescreen.Location = new System.Drawing.Point(-20, -71);
-            this.PBusernamescreen.Name = "PBusernamescreen";
-            this.PBusernamescreen.Size = new System.Drawing.Size(544, 638);
-            this.PBusernamescreen.TabIndex = 5;
-            this.PBusernamescreen.TabStop = false;
-            this.PBusernamescreen.Visible = false;
-            this.PBusernamescreen.Click += new System.EventHandler(this.PBusernamescreen_Click);
-            // 
-            // PBMenu
-            // 
-            this.PBMenu.Image = ((System.Drawing.Image)(resources.GetObject("PBMenu.Image")));
-            this.PBMenu.InitialImage = ((System.Drawing.Image)(resources.GetObject("PBMenu.InitialImage")));
-            this.PBMenu.Location = new System.Drawing.Point(0, -116);
-            this.PBMenu.Name = "PBMenu";
-            this.PBMenu.Size = new System.Drawing.Size(508, 680);
-            this.PBMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PBMenu.TabIndex = 0;
-            this.PBMenu.TabStop = false;
-            // 
             // PBItems
             // 
             this.PBItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -359,6 +365,45 @@ namespace maze_concept
             this.PBItems.TabStop = false;
             this.PBItems.Visible = false;
             this.PBItems.Click += new System.EventHandler(this.PBItems_Click);
+            // 
+            // lblGameOver
+            // 
+            this.lblGameOver.AutoSize = true;
+            this.lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameOver.ForeColor = System.Drawing.Color.Yellow;
+            this.lblGameOver.Location = new System.Drawing.Point(18, 11);
+            this.lblGameOver.Name = "lblGameOver";
+            this.lblGameOver.Size = new System.Drawing.Size(420, 73);
+            this.lblGameOver.TabIndex = 6;
+            this.lblGameOver.Text = "GAME OVER";
+            this.lblGameOver.Visible = false;
+            this.lblGameOver.Click += new System.EventHandler(this.lblGameOver_Click);
+            // 
+            // lblGameOverScore
+            // 
+            this.lblGameOverScore.AutoSize = true;
+            this.lblGameOverScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameOverScore.ForeColor = System.Drawing.Color.Yellow;
+            this.lblGameOverScore.Location = new System.Drawing.Point(21, 102);
+            this.lblGameOverScore.Name = "lblGameOverScore";
+            this.lblGameOverScore.Size = new System.Drawing.Size(176, 55);
+            this.lblGameOverScore.TabIndex = 7;
+            this.lblGameOverScore.Text = "Score: ";
+            this.lblGameOverScore.Visible = false;
+            this.lblGameOverScore.Click += new System.EventHandler(this.lblGameOverScore_Click);
+            // 
+            // lblSignalRestart
+            // 
+            this.lblSignalRestart.AutoSize = true;
+            this.lblSignalRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSignalRestart.ForeColor = System.Drawing.Color.Yellow;
+            this.lblSignalRestart.Location = new System.Drawing.Point(21, 180);
+            this.lblSignalRestart.Name = "lblSignalRestart";
+            this.lblSignalRestart.Size = new System.Drawing.Size(490, 55);
+            this.lblSignalRestart.TabIndex = 8;
+            this.lblSignalRestart.Text = "Restart To Play Again";
+            this.lblSignalRestart.Visible = false;
+            this.lblSignalRestart.Click += new System.EventHandler(this.lblSignalRestart_Click);
             // 
             // MazeMania
             // 
@@ -381,10 +426,10 @@ namespace maze_concept
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MazeMania_KeyUp);
             this.pnlDraw.ResumeLayout(false);
             this.pnlDraw.PerformLayout();
-            this.mstOptions.ResumeLayout(false);
-            this.mstOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBusernamescreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMenu)).EndInit();
+            this.mstOptions.ResumeLayout(false);
+            this.mstOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -422,6 +467,9 @@ namespace maze_concept
         private System.Windows.Forms.TextBox txtBusername;
         public System.Windows.Forms.ListBox LBhighscores;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblGameOver;
+        private System.Windows.Forms.Label lblGameOverScore;
+        private System.Windows.Forms.Label lblSignalRestart;
     }
 }
 

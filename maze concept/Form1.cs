@@ -173,6 +173,20 @@ namespace maze_concept
                 {
                     playing = false;
                     HighScores.UpdateHighScore(username, Score);
+
+                    lblGameOverScore.Text = "Score: " + Score.ToString();
+                    
+                    lblGameOverScore.Visible= true;
+                    lblGameOver.Visible = true;
+                    lblSignalRestart.Visible = true;
+                    LBhighscores.Visible = true;
+                }
+                else
+                {
+                    lblGameOverScore.Visible = false;
+                    lblGameOver.Visible = false;
+                    lblSignalRestart.Visible = false;
+                    LBhighscores.Visible = false;
                 }
             }
         }
@@ -551,9 +565,19 @@ namespace maze_concept
 
         }
 
+        private void lblGameOver_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void lblGameOverScore_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void lblSignalRestart_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
