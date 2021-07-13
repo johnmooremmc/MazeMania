@@ -178,15 +178,18 @@ namespace maze_concept
                     
                     lblGameOverScore.Visible= true;
                     lblGameOver.Visible = true;
-                    lblSignalRestart.Visible = true;
                     LBhighscores.Visible = true;
+                    btnGameOverRestart.Visible = true;
+                    btnGameOverRestart.Enabled = true;
                 }
                 else
                 {
                     lblGameOverScore.Visible = false;
                     lblGameOver.Visible = false;
-                    lblSignalRestart.Visible = false;
                     LBhighscores.Visible = false;
+
+                    btnGameOverRestart.Visible = false;
+                    btnGameOverRestart.Enabled = false;
                 }
             }
         }
@@ -336,6 +339,10 @@ namespace maze_concept
             timeLeft = gameTime;
             lblTime.Text = "Time: " + timeLeft.ToString();
             playing = true;
+            btnGameOverRestart.ForeColor = Color.Yellow;
+            HighScores.UpdateHighScore(username, Score);
+
+
 
 
         }
@@ -575,9 +582,39 @@ namespace maze_concept
 
         }
 
-        private void lblSignalRestart_Click(object sender, EventArgs e)
-        {
 
+
+        private void btnGameOverRestart_Click(object sender, EventArgs e)
+        {
+            currentSkin = !currentSkin;
+
+            pnlDraw.Refresh();
+            maze.GenerateMaze();
+            pnlDraw.Invalidate();
+
+            Random rand2 = new Random();
+            goal.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
+            goal.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
+
+            avatar.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
+            avatar.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
+
+            Score = 0;
+            lblScore.Text = "Score: " + Score.ToString();
+
+            timeLeft = gameTime;
+            lblTime.Text = "Time: " + timeLeft.ToString();
+            playing = true;
+
+            btnGameOverRestart.ForeColor = Color.Yellow;
+            HighScores.UpdateHighScore(username, Score);
+
+
+        }
+
+        private void btnGameOverRestart_MouseHover(object sender, EventArgs e)
+        {
+            btnGameOverRestart.ForeColor = Color.Pink;
         }
     }
 }

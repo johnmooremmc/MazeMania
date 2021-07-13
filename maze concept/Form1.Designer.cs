@@ -32,6 +32,8 @@ namespace maze_concept
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MazeMania));
             this.pnlDraw = new System.Windows.Forms.Panel();
+            this.lblGameOver = new System.Windows.Forms.Label();
+            this.lblGameOverScore = new System.Windows.Forms.Label();
             this.LBhighscores = new System.Windows.Forms.ListBox();
             this.txtBusername = new System.Windows.Forms.TextBox();
             this.btnUsername = new System.Windows.Forms.Button();
@@ -60,9 +62,7 @@ namespace maze_concept
             this.lblTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.PBItems = new System.Windows.Forms.PictureBox();
-            this.lblGameOver = new System.Windows.Forms.Label();
-            this.lblGameOverScore = new System.Windows.Forms.Label();
-            this.lblSignalRestart = new System.Windows.Forms.Label();
+            this.btnGameOverRestart = new System.Windows.Forms.Button();
             this.pnlDraw.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBusernamescreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMenu)).BeginInit();
@@ -72,7 +72,7 @@ namespace maze_concept
             // 
             // pnlDraw
             // 
-            this.pnlDraw.Controls.Add(this.lblSignalRestart);
+            this.pnlDraw.Controls.Add(this.btnGameOverRestart);
             this.pnlDraw.Controls.Add(this.lblGameOver);
             this.pnlDraw.Controls.Add(this.lblGameOverScore);
             this.pnlDraw.Controls.Add(this.LBhighscores);
@@ -87,6 +87,32 @@ namespace maze_concept
             this.pnlDraw.Size = new System.Drawing.Size(505, 567);
             this.pnlDraw.TabIndex = 0;
             this.pnlDraw.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDraw_paint);
+            // 
+            // lblGameOver
+            // 
+            this.lblGameOver.AutoSize = true;
+            this.lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameOver.ForeColor = System.Drawing.Color.Yellow;
+            this.lblGameOver.Location = new System.Drawing.Point(18, 11);
+            this.lblGameOver.Name = "lblGameOver";
+            this.lblGameOver.Size = new System.Drawing.Size(420, 73);
+            this.lblGameOver.TabIndex = 6;
+            this.lblGameOver.Text = "GAME OVER";
+            this.lblGameOver.Visible = false;
+            this.lblGameOver.Click += new System.EventHandler(this.lblGameOver_Click);
+            // 
+            // lblGameOverScore
+            // 
+            this.lblGameOverScore.AutoSize = true;
+            this.lblGameOverScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameOverScore.ForeColor = System.Drawing.Color.Yellow;
+            this.lblGameOverScore.Location = new System.Drawing.Point(21, 102);
+            this.lblGameOverScore.Name = "lblGameOverScore";
+            this.lblGameOverScore.Size = new System.Drawing.Size(176, 55);
+            this.lblGameOverScore.TabIndex = 7;
+            this.lblGameOverScore.Text = "Score: ";
+            this.lblGameOverScore.Visible = false;
+            this.lblGameOverScore.Click += new System.EventHandler(this.lblGameOverScore_Click);
             // 
             // LBhighscores
             // 
@@ -366,44 +392,20 @@ namespace maze_concept
             this.PBItems.Visible = false;
             this.PBItems.Click += new System.EventHandler(this.PBItems_Click);
             // 
-            // lblGameOver
+            // btnGameOverRestart
             // 
-            this.lblGameOver.AutoSize = true;
-            this.lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameOver.ForeColor = System.Drawing.Color.Yellow;
-            this.lblGameOver.Location = new System.Drawing.Point(18, 11);
-            this.lblGameOver.Name = "lblGameOver";
-            this.lblGameOver.Size = new System.Drawing.Size(420, 73);
-            this.lblGameOver.TabIndex = 6;
-            this.lblGameOver.Text = "GAME OVER";
-            this.lblGameOver.Visible = false;
-            this.lblGameOver.Click += new System.EventHandler(this.lblGameOver_Click);
-            // 
-            // lblGameOverScore
-            // 
-            this.lblGameOverScore.AutoSize = true;
-            this.lblGameOverScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameOverScore.ForeColor = System.Drawing.Color.Yellow;
-            this.lblGameOverScore.Location = new System.Drawing.Point(21, 102);
-            this.lblGameOverScore.Name = "lblGameOverScore";
-            this.lblGameOverScore.Size = new System.Drawing.Size(176, 55);
-            this.lblGameOverScore.TabIndex = 7;
-            this.lblGameOverScore.Text = "Score: ";
-            this.lblGameOverScore.Visible = false;
-            this.lblGameOverScore.Click += new System.EventHandler(this.lblGameOverScore_Click);
-            // 
-            // lblSignalRestart
-            // 
-            this.lblSignalRestart.AutoSize = true;
-            this.lblSignalRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSignalRestart.ForeColor = System.Drawing.Color.Yellow;
-            this.lblSignalRestart.Location = new System.Drawing.Point(21, 180);
-            this.lblSignalRestart.Name = "lblSignalRestart";
-            this.lblSignalRestart.Size = new System.Drawing.Size(490, 55);
-            this.lblSignalRestart.TabIndex = 8;
-            this.lblSignalRestart.Text = "Restart To Play Again";
-            this.lblSignalRestart.Visible = false;
-            this.lblSignalRestart.Click += new System.EventHandler(this.lblSignalRestart_Click);
+            this.btnGameOverRestart.BackColor = System.Drawing.Color.Black;
+            this.btnGameOverRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGameOverRestart.ForeColor = System.Drawing.Color.Yellow;
+            this.btnGameOverRestart.Location = new System.Drawing.Point(22, 170);
+            this.btnGameOverRestart.Name = "btnGameOverRestart";
+            this.btnGameOverRestart.Size = new System.Drawing.Size(300, 75);
+            this.btnGameOverRestart.TabIndex = 9;
+            this.btnGameOverRestart.Text = "Restart";
+            this.btnGameOverRestart.UseVisualStyleBackColor = false;
+            this.btnGameOverRestart.Visible = false;
+            this.btnGameOverRestart.Click += new System.EventHandler(this.btnGameOverRestart_Click);
+            this.btnGameOverRestart.MouseHover += new System.EventHandler(this.btnGameOverRestart_MouseHover);
             // 
             // MazeMania
             // 
@@ -469,7 +471,7 @@ namespace maze_concept
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblGameOver;
         private System.Windows.Forms.Label lblGameOverScore;
-        private System.Windows.Forms.Label lblSignalRestart;
+        private System.Windows.Forms.Button btnGameOverRestart;
     }
 }
 
