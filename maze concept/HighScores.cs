@@ -54,6 +54,8 @@ namespace maze_concept
                 values = line.Split(',');
                 name = values[0];
                 scores = int.Parse(values[1]);
+                // username may not include ","
+
                 HighScoreList.Add((name, scores));
 
                 if (Score < lowerScore || counter == 0 )
