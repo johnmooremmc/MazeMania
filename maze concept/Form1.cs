@@ -19,20 +19,27 @@ namespace maze_concept
             InitializeComponent();
 
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlDraw, new object[] { true });
+            // doublebuffering script, which will cause for frames to be more smoothly transitioning
 
             Random rand = new Random();
+            // defines random
 
             maze = new Maze(10, 10);
+            // defines maze class, sending rows and columns, 10 by 10 grid size. 10 columns, 10 rows
+          
             avatar = new Avatar();
             goal = new Goal();
             HighScores = new HighScores();
+            // defines path to classes
             
 
             avatar.x = maze.Cells[ 5+ rand.Next(-5,5),  5+ rand.Next(-5, 5)].x;
             avatar.y = maze.Cells[ 5+ rand.Next(-5, 5), 5+ rand.Next(-5, 5)].y;
+            // defines avatar.x and y starting position by random
 
             goal.x = maze.Cells[ 5+ rand.Next(-5, 5),  5+ rand.Next(-5, 5)].x;
             goal.y = maze.Cells[ 5+ rand.Next(-5, 5),  5+ rand.Next(-5, 5)].y;
+            // defines goal.x and y starting position
             
         }
 
@@ -41,33 +48,44 @@ namespace maze_concept
         private Avatar avatar;
         private Goal goal;
         private HighScores HighScores;
+        // defines classes
+
 
         bool playing = false;
         string skin = "1";
+        // defines variables for further use
 
         int Score;
+        // defines empty integer value for future score
 
         int timeLeft;
         int gameTime = 30;
+        // gametime will become the time left, defined here in one place
 
         bool currentSkin = false;
         public Image goalSkin = Properties.Resources.Avatar10;
         public Image goalSkin2 = Properties.Resources.Avatar8;
+        // defines image path for goal
+
 
         string username;
         bool btnUserSpace = false;
+        // defines username which will be input on username screen
 
 
 
 
-
+        // below, on load of form
         private void MazeMania_Load(object sender, EventArgs e)
         {
-           // MessageBox.Show("Welcome to Maze Mania, Within this game your goal is to collect as much Treasure as you can before the timer runs out. \n \n \n Using W A S D, or the arrow keys you will navigate through the randomly generated mazes.");
+            MessageBox.Show("Welcome to Maze Mania, Within this game your goal is to collect as much Treasure as you can before the timer runs out. \n \n \n Using W A S D, or the arrow keys you will navigate through the randomly generated mazes.");
+            // message box, how to play instructions
 
             mstOptions.BringToFront();
+            // bring to front property to ensure options bar is not hidden
 
             HighScores.UpdateHighScore(username, Score);
+            // run through hishcores to upadate, in case of new results
 
             //lblHighscore1.Text = username textfromsavefile + Score textfromsavefile
 
@@ -79,12 +97,13 @@ namespace maze_concept
         private void pnlDraw_paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-
-            Brush br = Brushes.Black;
+            // defines graphics by the pannel 
 
             maze.DrawCells(g);
+            // runs method in Maze.cs
 
             avatar.DrawAvatar(g, skin);
+            // runs method in Avatar.cs
             
 
 
@@ -97,99 +116,121 @@ namespace maze_concept
             {
                 goal.DrawGoal(g, goalSkin2);
                 
-            }
+            }// Above is a T flip flop, for the two goal skins.
 
             CheckConditions();
-
-
-
-
-
+            // runs method check conditions, checks time, and score
         }
 
         private void mstOptions_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-
         }
 
+        // below, when button1 is clicked
         private void button1_Click(object sender, EventArgs e)
         {
             PBMenu.Visible = false;
             btnStart.Visible = false;
             btnExit.Visible = false;
+            // menue objects are hidden
 
             LBhighscores.Visible = false;
             LBhighscores.Enabled = false;
-
+            // highscores are hidden
 
             btnUsername.Visible = true;
             btnUsername.Enabled = true;
             PBusernamescreen.Visible = true;
+            // username objects are shown
 
             txtBusername.Visible = true;
             txtBusername.Enabled = true;
             txtBusername.BringToFront();
+            // username input is shown and enabled
 
 
         }
 
+        // when exit button is clicked
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            // apllication.Exit() is a safe way to exit, without worry of curruption
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            // apllication.Exit() is a safe way to exit, without worry of curruption
         }
 
+        // when start button is hovered over
         private void btnStart_MouseHover(object sender, EventArgs e)
         {
             btnStart.ForeColor = Color.Pink;
+            // change colour property to pink colour
         }
 
+        // when start button has mouse leave button
         private void btnStart_MouseLeave(object sender, EventArgs e)
         {
             btnStart.ForeColor = Color.Yellow;
+            // change button colour property back to yellow
         }
 
         private void btnExit_MouseHover(object sender, EventArgs e)
         {
             btnExit.ForeColor = Color.Pink;
+            // change button colour property to pink
         }
 
         private void btnExit_MouseLeave(object sender, EventArgs e)
         {
             btnExit.ForeColor = Color.Yellow;
+            // change button colour property back to yellow
         }
 
+        // on timer tick
         private void tmrAvatar_Tick(object sender, EventArgs e)
         {
             if (playing)
+                // if the game is said to be playing
             {
                 timeLeft -= 1;
+                // take 1 seccond off time left
+
                 lblTime.Text = "Time: " + timeLeft.ToString();
+                // update timer on screen
+
                 if(timeLeft <= 0)
+                    // if the time left hits 0
                 {
                     playing = false;
+                    // stop game
+
                     HighScores.UpdateHighScore(username, Score);
+                    // run highscore method in highscores.cs
 
                     lblGameOverScore.Text = "Score: " + Score.ToString();
+                    // run gameover screen text
                     
                     lblGameOverScore.Visible= true;
                     lblGameOver.Visible = true;
                     LBhighscores.Visible = true;
                     btnGameOverRestart.Visible = true;
                     btnGameOverRestart.Enabled = true;
+                    // show game over text
                 }
                 else
                 {
                     lblGameOverScore.Visible = false;
                     lblGameOver.Visible = false;
                     LBhighscores.Visible = false;
+                    // if the game is not over, hide the game over screen
 
                     btnGameOverRestart.Visible = false;
                     btnGameOverRestart.Enabled = false;
+                    // disable restart button on gameover screen
                 }
             }
         }
@@ -201,61 +242,80 @@ namespace maze_concept
         private void MazeMania_KeyDown(object sender, KeyEventArgs e)
         {
             if (playing)
+                // if playing
             {
                 if (e.KeyCode == Keys.D)
+                    // on "D" button key press
                 {
                     if (avatar.x / 50 < maze.Columns)
+                        // if avatar is not in right most cell column
                     {
                         if (maze.Cells[avatar.x / 50, avatar.y / 50].rightwall != true)
                         {
                             avatar.x = avatar.x + 50;
+                            // change avatar.x position by 1 cell
                         }
                     }
                     e.Handled = true;
                     e.SuppressKeyPress = true;
+                    // suppress stupidly annoying win10 error sound :)
 
 
                 }
                 if (e.KeyCode == Keys.A)
+                    // on A button press
                 {
                     if ((avatar.x - 50) / 50 >= 0)
+                        // if avatar not in left most column
                     {
                         if (maze.Cells[avatar.x / 50 - 1, avatar.y / 50].rightwall != true)
                         {
                             avatar.x = avatar.x - 50;
+                            // move avatar in to left cell
                         }
                     }
                     e.Handled = true;
                     e.SuppressKeyPress = true;
+                    // supress win10 error sound
 
                 }
                 if (e.KeyCode == Keys.W)
+                    // on W button press
                 {
                     if ((avatar.y - 50) / 50 >= 0)
+                        // if avatar no in top most row
                     {
                         if (maze.Cells[avatar.x / 50, (avatar.y / 50) - 1].bottomwall != true)
                         {
                             avatar.y = avatar.y - 50;
+                            // ove avatar up
                         }
                     }
                     e.Handled = true;
                     e.SuppressKeyPress = true;
+                    // supress win10 error sound
 
                 }
                 if (e.KeyCode == Keys.S)
+                    // On S button press
                 {
                     if (avatar.y / 50 < maze.Rows)
+                        // if not in bottom row
                     {
                         if (maze.Cells[avatar.x / 50, avatar.y / 50].bottomwall != true)
                         {
                             avatar.y = avatar.y + 50;
+                            // move avatar down
                         }
                     }
                     e.Handled = true;
                     e.SuppressKeyPress = true;
+                    // supress win10 error sound
 
                 }
 
+
+                // for all these controls below, on key press check if the avatar is in extreme cell.  If not, then move avatar to that cell
                 if (e.KeyCode == Keys.Right) 
                 {
                     if (avatar.x / 50 < maze.Columns)
@@ -308,43 +368,61 @@ namespace maze_concept
                     e.SuppressKeyPress = true;
 
                 }
+                // End of arrow key controls
+
+
                 pnlDraw.Invalidate();
+                // invalidate forces the panel to redraw
             }
             }
 
         private void MazeMania_KeyUp(object sender, KeyEventArgs e)
         {
-
         }
 
+        // when restart button pressed
         private void restartToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             currentSkin = !currentSkin;
+            // forces the skin to change
+
+            HighScores.UpdateHighScore(username, Score);
+            // run throguh highscores
 
             pnlDraw.Refresh();
             maze.GenerateMaze();
+            // regenerate map
             pnlDraw.Invalidate();
+            // force redraw panel
+
+
 
             Random rand2 = new Random();
             goal.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
             goal.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
+            // new random goal position
+
 
             avatar.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
             avatar.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
+            // new random avatar position
 
             Score = 0;
+            // score is reset to 0
             lblScore.Text = "Score: " + Score.ToString();
+            // update score lable
 
             timeLeft = gameTime;
+            // timeleft is reset back to gametime
+
             lblTime.Text = "Time: " + timeLeft.ToString();
+            // update time lable
+
             playing = true;
+            // set game to play
+
             btnGameOverRestart.ForeColor = Color.Yellow;
-            HighScores.UpdateHighScore(username, Score);
-
-
-
-
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -353,6 +431,8 @@ namespace maze_concept
             pnlDraw.Refresh();
             pnlDraw.Invalidate();
 
+            // force redraw with new skin based on avatar class
+
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
@@ -360,6 +440,8 @@ namespace maze_concept
             skin = "2";
             pnlDraw.Refresh();
             pnlDraw.Invalidate();
+            // force redraw with new skin based on avatar class
+
 
         }
 
@@ -368,6 +450,8 @@ namespace maze_concept
             skin = "3";
             pnlDraw.Refresh();
             pnlDraw.Invalidate();
+            // force redraw with new skin based on avatar class
+
 
         }
 
@@ -376,6 +460,8 @@ namespace maze_concept
             skin = "4";
             pnlDraw.Refresh();
             pnlDraw.Invalidate();
+            // force redraw with new skin based on avatar class
+
 
         }
 
@@ -384,6 +470,8 @@ namespace maze_concept
             skin = "5";
             pnlDraw.Refresh();
             pnlDraw.Invalidate();
+            // force redraw with new skin based on avatar class
+
 
         }
 
@@ -392,6 +480,8 @@ namespace maze_concept
             skin = "6";
             pnlDraw.Refresh();
             pnlDraw.Invalidate();
+            // force redraw with new skin based on avatar class
+
 
         }
 
@@ -400,6 +490,8 @@ namespace maze_concept
             skin = "7";
             pnlDraw.Refresh();
             pnlDraw.Invalidate();
+            // force redraw with new skin based on avatar class
+
         }
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
@@ -407,6 +499,8 @@ namespace maze_concept
             skin = "8";
             pnlDraw.Refresh();
             pnlDraw.Invalidate();
+            // force redraw with new skin based on avatar class
+
         }
 
         private void toolStripMenuItem10_Click(object sender, EventArgs e)
@@ -414,6 +508,8 @@ namespace maze_concept
             skin = "9";
             pnlDraw.Refresh();
             pnlDraw.Invalidate();
+            // force redraw with new skin based on avatar class
+
         }
 
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
@@ -421,28 +517,35 @@ namespace maze_concept
             skin = "10";
             pnlDraw.Refresh();
             pnlDraw.Invalidate();
+            // force redraw with new skin based on avatar class
+
         }
 
         public void CheckConditions()
         {
             if (avatar.x == goal.x & avatar.y == goal.y )
+                // if the avatar and goal are in same position
             {
                 maze.GenerateMaze();
+                // regenerate maze
 
                 Random rand2 = new Random();
                 goal.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
                 goal.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
+                // new random goal position
 
                 currentSkin = !currentSkin;
+                // change goal skin
 
                 pnlDraw.Refresh();
                 pnlDraw.Invalidate();
-                
-                
+                // force redraw panel
                 
                 Score += 1;
-                lblScore.Text = "Score: " + Score.ToString();
+                // add 1 to score
 
+                lblScore.Text = "Score: " + Score.ToString();
+                // update score lable
             }
 
         }
@@ -475,14 +578,16 @@ namespace maze_concept
         private void btnUsername_Click(object sender, EventArgs e)
         {
             if (btnUserSpace) 
+                // if there is text in username text box
             {
                 
-            txtBusername.Visible = false;
+                txtBusername.Visible = false;
                 txtBusername.Enabled = false;
 
                 PBusernamescreen.Visible = false;
                 btnUsername.Visible = false;
                 btnUsername.Enabled = false;
+                // hidde objects on username screen
 
                 mstOptions.Visible = true;
 
@@ -494,16 +599,20 @@ namespace maze_concept
                 btnStart.Enabled = false;
                 btnExit.Enabled = false;
                 mstOptions.Enabled = true;
+                // show objects in game layout
 
                 timeLeft = gameTime;
                 playing = true;
                 tmrAvatar.Enabled = true;
+                // start the game
 
                 lblUsername.Text = username;
+                // set the username lable by the username input
 
                 maze.GenerateMaze();
 
                 pnlDraw.Invalidate();
+                // force panel to redraw
             }
         }
 
@@ -515,22 +624,24 @@ namespace maze_concept
         private void txtBusername_TextChanged(object sender, EventArgs e)
         {
             username = txtBusername.Text;
+            // username input updated on username lable
 
             if(txtBusername.Text == "")
+                // if the textbox is empty
             {
                 btnUsername.Enabled = false;
                 btnUserSpace = false;
+                // input button is disabled
             }
 
             if(txtBusername.Text != "")
+                // if the text box is not empty
             {
                 btnUsername.Enabled = true;
                 btnUserSpace = true;
-
+                // enable the text box
             }
         }
-
-        
 
         private void LBhighscores_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -539,27 +650,36 @@ namespace maze_concept
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+            // below is a devalopement bug testing algorithm, which is disabled by the logic that the score may never be equal or less than -1
             if (playing)
+                // if playing
             {
                 if (Score <= -1)
+                    // if the score is less or equal to a value.
                 {
                     pnlDraw.Refresh();
                     maze.GenerateMaze();
                     pnlDraw.Invalidate();
+                    // reset maze
 
                     Random rand2 = new Random();
                     goal.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
                     goal.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
+                    // reset goal position
 
                     avatar.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
                     avatar.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
+                    // reset avatar position
 
                     Score = 0;
                     lblScore.Text = "Score: " + Score.ToString();
+                    // score reset
 
                     timeLeft = gameTime;
                     lblTime.Text = "Time: " + timeLeft.ToString();
                     playing = true;
+                    // reset time and start playing
                 }
 
             }
@@ -567,9 +687,8 @@ namespace maze_concept
 
         public void UpdateListBox(string names, int score2)
         {
-            LBhighscores.Items.Add(names + " - " + score2.ToString());
-
-
+           // LBhighscores.Items.Add(names + " - " + score2.ToString());
+           // add values to listbox, highscores currently bugged
         }
 
         private void lblGameOver_Click(object sender, EventArgs e)
@@ -582,39 +701,46 @@ namespace maze_concept
 
         }
 
-
-
+        // reset button click, reset the game
         private void btnGameOverRestart_Click(object sender, EventArgs e)
         {
             currentSkin = !currentSkin;
 
             pnlDraw.Refresh();
             maze.GenerateMaze();
+            // generate new maze
+
             pnlDraw.Invalidate();
+            // force redraw
 
             Random rand2 = new Random();
             goal.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
             goal.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
+            // new goal position
 
             avatar.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
             avatar.y = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].y;
+            // new avatar position
 
             Score = 0;
             lblScore.Text = "Score: " + Score.ToString();
+            // reset score
 
             timeLeft = gameTime;
             lblTime.Text = "Time: " + timeLeft.ToString();
             playing = true;
+            // start playing
 
             btnGameOverRestart.ForeColor = Color.Yellow;
             HighScores.UpdateHighScore(username, Score);
-
+            // cehcek highscores 
 
         }
 
         private void btnGameOverRestart_MouseHover(object sender, EventArgs e)
         {
             btnGameOverRestart.ForeColor = Color.Pink;
+            // reset button on hover change colour to pink
         }
     }
 }
