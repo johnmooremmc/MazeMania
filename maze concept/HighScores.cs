@@ -112,18 +112,6 @@ namespace maze_concept
                 // for devalopment purposes, will write the 10 scores in the console for debugging, and for proof of concept earlier into devalopment
 
             }
-            
-
-
-
-
-
         }
-
-        
-
-
-
-
     }
 }
