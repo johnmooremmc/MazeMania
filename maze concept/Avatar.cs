@@ -62,21 +62,21 @@ namespace maze_concept
                 avatarSkin = Properties.Resources.Avatar7;
                 // define the image source of avatarskin as
             }
-            //if (skin == "8")
-            //{// if the skin string sent in method =
-            //    avatarSkin = Properties.Resources.Avatar8;
+            if (skin == "8")
+            {// if the skin string sent in method =
+                avatarSkin = Properties.Resources.Avatar11;
                   // define the image source of avatarskin as
-            //}
+            }
             if (skin == "9")
             {// if the skin string sent in method =
                 avatarSkin = Properties.Resources.Avatar9;
                 // define the image source of avatarskin as
             }
-            //if (skin == "10")
+            if (skin == "10")
             //{// if the skin string sent in method =
-            //    avatarSkin = Properties.Resources.Avatar10;
+                avatarSkin = Properties.Resources.Avatar12;
                   // define the image source of avatarskin as
-            //}
+            }
 
 
         }

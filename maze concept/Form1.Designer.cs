@@ -32,6 +32,7 @@ namespace maze_concept
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MazeMania));
             this.pnlDraw = new System.Windows.Forms.Panel();
+            this.btnGameOverRestart = new System.Windows.Forms.Button();
             this.lblGameOver = new System.Windows.Forms.Label();
             this.lblGameOverScore = new System.Windows.Forms.Label();
             this.LBhighscores = new System.Windows.Forms.ListBox();
@@ -62,7 +63,6 @@ namespace maze_concept
             this.lblTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.PBItems = new System.Windows.Forms.PictureBox();
-            this.btnGameOverRestart = new System.Windows.Forms.Button();
             this.pnlDraw.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBusernamescreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBMenu)).BeginInit();
@@ -87,6 +87,21 @@ namespace maze_concept
             this.pnlDraw.Size = new System.Drawing.Size(505, 567);
             this.pnlDraw.TabIndex = 0;
             this.pnlDraw.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDraw_paint);
+            // 
+            // btnGameOverRestart
+            // 
+            this.btnGameOverRestart.BackColor = System.Drawing.Color.Black;
+            this.btnGameOverRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGameOverRestart.ForeColor = System.Drawing.Color.Yellow;
+            this.btnGameOverRestart.Location = new System.Drawing.Point(22, 170);
+            this.btnGameOverRestart.Name = "btnGameOverRestart";
+            this.btnGameOverRestart.Size = new System.Drawing.Size(300, 75);
+            this.btnGameOverRestart.TabIndex = 9;
+            this.btnGameOverRestart.Text = "Restart";
+            this.btnGameOverRestart.UseVisualStyleBackColor = false;
+            this.btnGameOverRestart.Visible = false;
+            this.btnGameOverRestart.Click += new System.EventHandler(this.btnGameOverRestart_Click);
+            this.btnGameOverRestart.MouseHover += new System.EventHandler(this.btnGameOverRestart_MouseHover);
             // 
             // lblGameOver
             // 
@@ -125,7 +140,7 @@ namespace maze_concept
             // 
             // txtBusername
             // 
-            this.txtBusername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.txtBusername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txtBusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBusername.Location = new System.Drawing.Point(108, 102);
             this.txtBusername.MaxLength = 16;
@@ -391,21 +406,6 @@ namespace maze_concept
             this.PBItems.TabStop = false;
             this.PBItems.Visible = false;
             this.PBItems.Click += new System.EventHandler(this.PBItems_Click);
-            // 
-            // btnGameOverRestart
-            // 
-            this.btnGameOverRestart.BackColor = System.Drawing.Color.Black;
-            this.btnGameOverRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGameOverRestart.ForeColor = System.Drawing.Color.Yellow;
-            this.btnGameOverRestart.Location = new System.Drawing.Point(22, 170);
-            this.btnGameOverRestart.Name = "btnGameOverRestart";
-            this.btnGameOverRestart.Size = new System.Drawing.Size(300, 75);
-            this.btnGameOverRestart.TabIndex = 9;
-            this.btnGameOverRestart.Text = "Restart";
-            this.btnGameOverRestart.UseVisualStyleBackColor = false;
-            this.btnGameOverRestart.Visible = false;
-            this.btnGameOverRestart.Click += new System.EventHandler(this.btnGameOverRestart_Click);
-            this.btnGameOverRestart.MouseHover += new System.EventHandler(this.btnGameOverRestart_MouseHover);
             // 
             // MazeMania
             // 

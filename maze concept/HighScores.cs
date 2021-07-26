@@ -55,7 +55,7 @@ namespace maze_concept
                 // if the score recieved is not 0
                 // this means that after every reset, and fail, the score would be a waste to upload
             {
-                writer.WriteLine(username + "," + Score.ToString());
+                writer.WriteLine(username + "|" + Score.ToString());
                 // write a new line.
                 // username,Score
             }
@@ -74,7 +74,7 @@ namespace maze_concept
                 line = reader.ReadLine();
                 // defines the concept of a line within the text document
 
-                values = line.Split(',');
+                values = line.Split('|');
                 // defines two variables by the "," split
 
                 name = values[0];
