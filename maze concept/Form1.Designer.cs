@@ -131,10 +131,12 @@ namespace maze_concept
             // 
             // LBhighscores
             // 
+            this.LBhighscores.BackColor = System.Drawing.SystemColors.InfoText;
+            this.LBhighscores.ForeColor = System.Drawing.Color.Yellow;
             this.LBhighscores.FormattingEnabled = true;
-            this.LBhighscores.Location = new System.Drawing.Point(108, 496);
+            this.LBhighscores.Location = new System.Drawing.Point(257, 469);
             this.LBhighscores.Name = "LBhighscores";
-            this.LBhighscores.Size = new System.Drawing.Size(386, 56);
+            this.LBhighscores.Size = new System.Drawing.Size(237, 95);
             this.LBhighscores.TabIndex = 7;
             this.LBhighscores.SelectedIndexChanged += new System.EventHandler(this.LBhighscores_SelectedIndexChanged);
             // 
@@ -426,6 +428,7 @@ namespace maze_concept
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MazeMania_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MazeMania_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MazeMania_KeyUp);
+            this.MouseHover += new System.EventHandler(this.MazeMania_MouseHover);
             this.pnlDraw.ResumeLayout(false);
             this.pnlDraw.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBusernamescreen)).EndInit();

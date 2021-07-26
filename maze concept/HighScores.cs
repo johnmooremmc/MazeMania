@@ -16,9 +16,10 @@ namespace maze_concept
     {
 
         // below, a method will be called from form one with given username string and integer value score
-        public void UpdateHighScore(string username, int Score)
+        public void UpdateHighScore(string username, int Score, bool FormVisable)
         {
             
+
 
             StreamWriter writer;
             StreamReader reader;
@@ -102,16 +103,24 @@ namespace maze_concept
             HighScoreList = HighScoreList.OrderByDescending(x => x.Item2).Take(10).ToList();
             // sort the list by desecending order.  Highest score on top
             // also only take the top 10 values inclusive
-            
-            foreach (var (names,score2) in HighScoreList)
+
+            if (FormVisable) 
+                {
+
+                foreach (var (names, score2) in HighScoreList)
                 // for each of the 10 scores in the list formed
-            {
-               // MazeMania.UpdateListBox(names, score2);
+                {
 
-                Console.WriteLine(names + " :  " + score2);
-                // for devalopment purposes, will write the 10 scores in the console for debugging, and for proof of concept earlier into devalopment
+                    ((MazeMania)MazeMania.ActiveForm).LBhighscores.Items.Add("10");
 
+
+                    //Console.WriteLine(names + " :  " + score2);
+                    // for devalopment purposes, will write the 10 scores in the console for debugging, and for proof of concept earlier into devalopment
+
+                }
             }
         }
+        
+
     }
 }

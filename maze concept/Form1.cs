@@ -72,27 +72,23 @@ namespace maze_concept
         bool btnUserSpace = false;
         // defines username which will be input on username screen
 
+        bool FormVisable = false;
+
 
 
 
         // below, on load of form
         private void MazeMania_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Welcome to Maze Mania, Within this game your goal is to collect as much Treasure as you can before the timer runs out. \n \n \n Using W A S D, or the arrow keys you will navigate through the randomly generated mazes.");
+            //MessageBox.Show("Welcome to Maze Mania, Within this game your goal is to collect as much Treasure as you can before the timer runs out. \n \n \n Using W A S D, or the arrow keys you will navigate through the randomly generated mazes.");
             // message box, how to play instructions
 
             mstOptions.BringToFront();
             // bring to front property to ensure options bar is not hidden
 
-            HighScores.UpdateHighScore(username, Score);
-            // run through hishcores to upadate, in case of new results
-
             //lblHighscore1.Text = username textfromsavefile + Score textfromsavefile
 
         }
-
-
-
 
         private void pnlDraw_paint(object sender, PaintEventArgs e)
         {
@@ -208,7 +204,7 @@ namespace maze_concept
                     playing = false;
                     // stop game
 
-                    HighScores.UpdateHighScore(username, Score);
+                    HighScores.UpdateHighScore(username, Score, FormVisable);
                     // run highscore method in highscores.cs
 
                     lblGameOverScore.Text = "Score: " + Score.ToString();
@@ -387,7 +383,7 @@ namespace maze_concept
             currentSkin = !currentSkin;
             // forces the skin to change
 
-            HighScores.UpdateHighScore(username, Score);
+            HighScores.UpdateHighScore(username, Score, FormVisable);
             // run throguh highscores
 
             pnlDraw.Refresh();
@@ -621,6 +617,8 @@ namespace maze_concept
 
         }
 
+        
+
         private void txtBusername_TextChanged(object sender, EventArgs e)
         {
             username = txtBusername.Text;
@@ -732,7 +730,7 @@ namespace maze_concept
             // start playing
 
             btnGameOverRestart.ForeColor = Color.Yellow;
-            HighScores.UpdateHighScore(username, Score);
+            HighScores.UpdateHighScore(username, Score, FormVisable);
             // cehcek highscores 
 
         }
@@ -741,6 +739,15 @@ namespace maze_concept
         {
             btnGameOverRestart.ForeColor = Color.Pink;
             // reset button on hover change colour to pink
+        }
+
+        private void MazeMania_MouseHover(object sender, EventArgs e)
+        {
+            FormVisable = true;
+            HighScores.UpdateHighScore(username, Score, FormVisable);
+            // run through hishcores to upadate, in case of new results
+
+
         }
     }
 }
