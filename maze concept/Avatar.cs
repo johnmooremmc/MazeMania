@@ -64,7 +64,7 @@ namespace maze_concept
             }
             if (skin == "8")
             {// if the skin string sent in method =
-                avatarSkin = Properties.Resources.Avatar11;
+                avatarSkin = Properties.Resources.avatar11;
                   // define the image source of avatarskin as
             }
             if (skin == "9")
@@ -73,13 +73,10 @@ namespace maze_concept
                 // define the image source of avatarskin as
             }
             if (skin == "10")
-            //{// if the skin string sent in method =
-                avatarSkin = Properties.Resources.Avatar12;
+            {// if the skin string sent in method =
+                avatarSkin = Properties.Resources.avatar12;
                   // define the image source of avatarskin as
             }
-
-
         }
-
     }
 }
