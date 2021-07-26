@@ -57,7 +57,7 @@ namespace maze_concept
             {
                 writer.WriteLine(username + "|" + Score.ToString());
                 // write a new line.
-                // username,Score
+                // username|Score
             }
 
             writer.Close();
@@ -75,7 +75,7 @@ namespace maze_concept
                 // defines the concept of a line within the text document
 
                 values = line.Split('|');
-                // defines two variables by the "," split
+                // defines two variables by the "|" split
 
                 name = values[0];
                 // defines name, a string, by the first value on the line
