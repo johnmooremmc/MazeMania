@@ -204,6 +204,7 @@ namespace maze_concept
                     playing = false;
                     // stop game
 
+                    LBhighscores.Items.Clear();
                     HighScores.UpdateHighScore(username, Score, FormVisable);
                     // run highscore method in highscores.cs
 
@@ -213,6 +214,9 @@ namespace maze_concept
                     lblGameOverScore.Visible= true;
                     lblGameOver.Visible = true;
                     LBhighscores.Visible = true;
+                    LBhighscores.Enabled = true;
+
+
                     btnGameOverRestart.Visible = true;
                     btnGameOverRestart.Enabled = true;
                     // show game over text
@@ -222,6 +226,8 @@ namespace maze_concept
                     lblGameOverScore.Visible = false;
                     lblGameOver.Visible = false;
                     LBhighscores.Visible = false;
+                    LBhighscores.Enabled = false;
+
                     // if the game is not over, hide the game over screen
 
                     btnGameOverRestart.Visible = false;
@@ -383,6 +389,7 @@ namespace maze_concept
             currentSkin = !currentSkin;
             // forces the skin to change
 
+            LBhighscores.Items.Clear();
             HighScores.UpdateHighScore(username, Score, FormVisable);
             // run throguh highscores
 
@@ -730,8 +737,7 @@ namespace maze_concept
             // start playing
 
             btnGameOverRestart.ForeColor = Color.Yellow;
-            HighScores.UpdateHighScore(username, Score, FormVisable);
-            // cehcek highscores 
+            
 
         }
 
@@ -743,11 +749,16 @@ namespace maze_concept
 
         private void MazeMania_MouseHover(object sender, EventArgs e)
         {
+
+        }
+
+        private void PBMenu_MouseHover(object sender, EventArgs e)
+        {
             FormVisable = true;
+            LBhighscores.Items.Clear();
+
             HighScores.UpdateHighScore(username, Score, FormVisable);
             // run through hishcores to upadate, in case of new results
-
-
         }
     }
 }

@@ -218,6 +218,7 @@ namespace maze_concept
             this.PBMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PBMenu.TabIndex = 0;
             this.PBMenu.TabStop = false;
+            this.PBMenu.MouseHover += new System.EventHandler(this.PBMenu_MouseHover);
             // 
             // mstOptions
             // 
@@ -263,7 +264,7 @@ namespace maze_concept
             this.toolStripMenuItem10,
             this.toolStripMenuItem11});
             this.skinsToolStripMenuItem.Name = "skinsToolStripMenuItem";
-            this.skinsToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.skinsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.skinsToolStripMenuItem.Text = "Skins";
             // 
             // toolStripMenuItem2

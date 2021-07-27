@@ -111,7 +111,7 @@ namespace maze_concept
                 // for each of the 10 scores in the list formed
                 {
 
-                    ((MazeMania)MazeMania.ActiveForm).LBhighscores.Items.Add("10");
+                    ((MazeMania)MazeMania.ActiveForm).LBhighscores.Items.Add("   " + names.PadRight(10) + "-".PadRight(10) + score2.ToString() );
 
 
                     //Console.WriteLine(names + " :  " + score2);
