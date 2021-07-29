@@ -59,7 +59,7 @@ namespace maze_concept
         // defines empty integer value for future score
 
         int timeLeft;
-        int gameTime = 30;
+        int gameTime = 10;
         // gametime will become the time left, defined here in one place
 
         bool currentSkin = false;
@@ -80,7 +80,7 @@ namespace maze_concept
         // below, on load of form
         private void MazeMania_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show("Welcome to Maze Mania, Within this game your goal is to collect as much Treasure as you can before the timer runs out. \n \n \n Using W A S D, or the arrow keys you will navigate through the randomly generated mazes.");
+            MessageBox.Show("Welcome to Maze Mania, Within this game your goal is to collect as much Treasure as you can before the timer runs out. \n \n \n Using W A S D, or the arrow keys you will navigate through the randomly generated mazes.");
             // message box, how to play instructions
 
             mstOptions.BringToFront();
@@ -189,6 +189,15 @@ namespace maze_concept
         // on timer tick
         private void tmrAvatar_Tick(object sender, EventArgs e)
         {
+            var ActiveCheck = MazeMania.ActiveForm;
+            if(ActiveCheck == null)
+            {
+                FormVisable = false;
+            } else
+            {
+                FormVisable = true;
+            }
+
             if (playing)
                 // if the game is said to be playing
             {
@@ -205,7 +214,18 @@ namespace maze_concept
                     // stop game
 
                     LBhighscores.Items.Clear();
-                    HighScores.UpdateHighScore(username, Score, FormVisable);
+
+
+
+
+                    if (FormVisable)
+                    {
+                        HighScores.UpdateHighScore(username, Score, FormVisable);
+                    }
+                    
+                    
+                    
+
                     // run highscore method in highscores.cs
 
                     lblGameOverScore.Text = "Score: " + Score.ToString();
@@ -390,7 +410,10 @@ namespace maze_concept
             // forces the skin to change
 
             LBhighscores.Items.Clear();
-            HighScores.UpdateHighScore(username, Score, FormVisable);
+            if (FormVisable)
+            {
+                HighScores.UpdateHighScore(username, Score, FormVisable);
+            }
             // run throguh highscores
 
             pnlDraw.Refresh();
@@ -758,6 +781,7 @@ namespace maze_concept
             LBhighscores.Items.Clear();
 
             HighScores.UpdateHighScore(username, Score, FormVisable);
+
             // run through hishcores to upadate, in case of new results
         }
     }
