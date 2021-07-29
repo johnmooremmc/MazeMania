@@ -44,8 +44,8 @@ namespace maze_concept
             { // if the boolein bottle wall is true when the method is called
                 g.DrawLine(Pen, x, y + height, x + width, y + height);
                 // draw a line across from x to x + width
-                // across a single x value
             }
+                // across a single x value
 
             g.DrawLine(Pen, 0, y, 0, y + this.height);
             g.DrawLine(Pen, x, 0, x + this.width, 0);

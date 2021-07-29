@@ -59,7 +59,7 @@ namespace maze_concept
         // defines empty integer value for future score
 
         int timeLeft;
-        int gameTime = 10;
+        int gameTime = 30;
         // gametime will become the time left, defined here in one place
 
         bool currentSkin = false;
@@ -683,13 +683,17 @@ namespace maze_concept
             if (playing)
                 // if playing
             {
-                if (Score <= -1)
+                if (Score <= 15)
                     // if the score is less or equal to a value.
                 {
                     pnlDraw.Refresh();
                     maze.GenerateMaze();
                     pnlDraw.Invalidate();
                     // reset maze
+                    if (FormVisable)
+                    {
+                        HighScores.UpdateHighScore(username, Score, FormVisable);
+                    }
 
                     Random rand2 = new Random();
                     goal.x = maze.Cells[5 + rand2.Next(-5, 5), 5 + rand2.Next(-5, 5)].x;
