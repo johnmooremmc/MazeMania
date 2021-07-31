@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Reflection;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace maze_concept
 {
@@ -18,7 +12,7 @@ namespace maze_concept
         // below, a method will be called from form one with given username string and integer value score
         public void UpdateHighScore(string username, int Score, bool FormVisable)
         {
-            
+
 
 
             StreamWriter writer;
@@ -30,7 +24,7 @@ namespace maze_concept
             string binPath = Application.StartupPath + @"\HighScores.txt";
             // defines a path to the text file containing highscores
 
-            List<(string, int) > HighScoreList = new List<(string, int)>();
+            List<(string, int)> HighScoreList = new List<(string, int)>();
             // defines a line of usernames by scores. 
 
 
@@ -39,7 +33,7 @@ namespace maze_concept
 
             string[] values;
             // defines an empty  variable, values which is defined as a character array.
-            
+
             string name = "";
             // defines an empty string for further use
 
@@ -52,9 +46,9 @@ namespace maze_concept
             writer = File.AppendText(binPath);
             // defines the writer as being able to open the file from the path descirbed above.  reaching the highscores.txt file
 
-            if(Score != 0)
-                // if the score recieved is not 0
-                // this means that after every reset, and fail, the score would be a waste to upload
+            if (Score != 0)
+            // if the score recieved is not 0
+            // this means that after every reset, and fail, the score would be a waste to upload
             {
                 writer.WriteLine(username + "|" + Score.ToString());
                 // write a new line.
@@ -69,8 +63,8 @@ namespace maze_concept
             reader = File.OpenText(binPath);
             // now define the reader as being able to open the highscores file defined by the path above
 
-            while(!reader.EndOfStream)
-                // While the value of a new line doees not return NULL
+            while (!reader.EndOfStream)
+            // While the value of a new line doees not return NULL
             {
                 line = reader.ReadLine();
                 // defines the concept of a line within the text document
@@ -87,8 +81,8 @@ namespace maze_concept
                 HighScoreList.Add((name, scores));
                 // list is formed as the while loop adds values to it
 
-                if (Score < lowerScore || counter == 0 )
-                    // while there is a score within the list to iterate to next
+                if (Score < lowerScore || counter == 0)
+                // while there is a score within the list to iterate to next
                 {
                     lowerScore = Score;
                     // defines lowerscore as score 
@@ -104,14 +98,14 @@ namespace maze_concept
             // sort the list by desecending order.  Highest score on top
             // also only take the top 10 values inclusive
 
-            if (FormVisable) 
-                {
+            if (FormVisable)
+            {
 
                 foreach (var (names, score2) in HighScoreList)
                 // for each of the 10 scores in the list formed
                 {
 
-                    ((MazeMania)MazeMania.ActiveForm).LBhighscores.Items.Add("   " + names.PadRight(10) + "-".PadRight(10) + score2.ToString() );
+                    ((MazeMania)MazeMania.ActiveForm).LBhighscores.Items.Add("   " + names.PadRight(10) + "-".PadRight(10) + score2.ToString());
 
 
                     //Console.WriteLine(names + " :  " + score2);
@@ -120,7 +114,7 @@ namespace maze_concept
                 }
             }
         }
-        
+
 
     }
 }

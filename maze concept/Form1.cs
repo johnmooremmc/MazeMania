@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Reflection;
+using System.Windows.Forms;
 
 
 namespace maze_concept
@@ -26,21 +20,21 @@ namespace maze_concept
 
             maze = new Maze(10, 10);
             // defines maze class, sending rows and columns, 10 by 10 grid size. 10 columns, 10 rows
-          
+
             avatar = new Avatar();
             goal = new Goal();
             HighScores = new HighScores();
             // defines path to classes
-            
 
-            avatar.x = maze.Cells[ 5+ rand.Next(-5,5),  5+ rand.Next(-5, 5)].x;
-            avatar.y = maze.Cells[ 5+ rand.Next(-5, 5), 5+ rand.Next(-5, 5)].y;
+
+            avatar.x = maze.Cells[5 + rand.Next(-5, 5), 5 + rand.Next(-5, 5)].x;
+            avatar.y = maze.Cells[5 + rand.Next(-5, 5), 5 + rand.Next(-5, 5)].y;
             // defines avatar.x and y starting position by random
 
-            goal.x = maze.Cells[ 5+ rand.Next(-5, 5),  5+ rand.Next(-5, 5)].x;
-            goal.y = maze.Cells[ 5+ rand.Next(-5, 5),  5+ rand.Next(-5, 5)].y;
+            goal.x = maze.Cells[5 + rand.Next(-5, 5), 5 + rand.Next(-5, 5)].x;
+            goal.y = maze.Cells[5 + rand.Next(-5, 5), 5 + rand.Next(-5, 5)].y;
             // defines goal.x and y starting position
-            
+
         }
 
 
@@ -100,18 +94,19 @@ namespace maze_concept
 
             avatar.DrawAvatar(g, skin);
             // runs method in Avatar.cs
-            
 
 
-            
+
+
             if (currentSkin)
             {
 
-            goal.DrawGoal(g, goalSkin);
-            } else
+                goal.DrawGoal(g, goalSkin);
+            }
+            else
             {
                 goal.DrawGoal(g, goalSkin2);
-                
+
             }// Above is a T flip flop, for the two goal skins.
 
             CheckConditions();
@@ -190,16 +185,17 @@ namespace maze_concept
         private void tmrAvatar_Tick(object sender, EventArgs e)
         {
             var ActiveCheck = MazeMania.ActiveForm;
-            if(ActiveCheck == null)
+            if (ActiveCheck == null)
             {
                 FormVisable = false;
-            } else
+            }
+            else
             {
                 FormVisable = true;
             }
 
             if (playing)
-                // if the game is said to be playing
+            // if the game is said to be playing
             {
                 timeLeft -= 1;
                 // take 1 seccond off time left
@@ -207,8 +203,8 @@ namespace maze_concept
                 lblTime.Text = "Time: " + timeLeft.ToString();
                 // update timer on screen
 
-                if(timeLeft <= 0)
-                    // if the time left hits 0
+                if (timeLeft <= 0)
+                // if the time left hits 0
                 {
                     playing = false;
                     // stop game
@@ -222,16 +218,16 @@ namespace maze_concept
                     {
                         HighScores.UpdateHighScore(username, Score, FormVisable);
                     }
-                    
-                    
-                    
+
+
+
 
                     // run highscore method in highscores.cs
 
                     lblGameOverScore.Text = "Score: " + Score.ToString();
                     // run gameover screen text
-                    
-                    lblGameOverScore.Visible= true;
+
+                    lblGameOverScore.Visible = true;
                     lblGameOver.Visible = true;
                     LBhighscores.Visible = true;
                     LBhighscores.Enabled = true;
@@ -264,13 +260,13 @@ namespace maze_concept
         private void MazeMania_KeyDown(object sender, KeyEventArgs e)
         {
             if (playing)
-                // if playing
+            // if playing
             {
                 if (e.KeyCode == Keys.D)
-                    // on "D" button key press
+                // on "D" button key press
                 {
                     if (avatar.x / 50 < maze.Columns)
-                        // if avatar is not in right most cell column
+                    // if avatar is not in right most cell column
                     {
                         if (maze.Cells[avatar.x / 50, avatar.y / 50].rightwall != true)
                         {
@@ -285,10 +281,10 @@ namespace maze_concept
 
                 }
                 if (e.KeyCode == Keys.A)
-                    // on A button press
+                // on A button press
                 {
                     if ((avatar.x - 50) / 50 >= 0)
-                        // if avatar not in left most column
+                    // if avatar not in left most column
                     {
                         if (maze.Cells[avatar.x / 50 - 1, avatar.y / 50].rightwall != true)
                         {
@@ -302,10 +298,10 @@ namespace maze_concept
 
                 }
                 if (e.KeyCode == Keys.W)
-                    // on W button press
+                // on W button press
                 {
                     if ((avatar.y - 50) / 50 >= 0)
-                        // if avatar no in top most row
+                    // if avatar no in top most row
                     {
                         if (maze.Cells[avatar.x / 50, (avatar.y / 50) - 1].bottomwall != true)
                         {
@@ -319,10 +315,10 @@ namespace maze_concept
 
                 }
                 if (e.KeyCode == Keys.S)
-                    // On S button press
+                // On S button press
                 {
                     if (avatar.y / 50 < maze.Rows)
-                        // if not in bottom row
+                    // if not in bottom row
                     {
                         if (maze.Cells[avatar.x / 50, avatar.y / 50].bottomwall != true)
                         {
@@ -338,7 +334,7 @@ namespace maze_concept
 
 
                 // for all these controls below, on key press check if the avatar is in extreme cell.  If not, then move avatar to that cell
-                if (e.KeyCode == Keys.Right) 
+                if (e.KeyCode == Keys.Right)
                 {
                     if (avatar.x / 50 < maze.Columns)
                     {
@@ -396,7 +392,7 @@ namespace maze_concept
                 pnlDraw.Invalidate();
                 // invalidate forces the panel to redraw
             }
-            }
+        }
 
         private void MazeMania_KeyUp(object sender, KeyEventArgs e)
         {
@@ -549,8 +545,8 @@ namespace maze_concept
 
         public void CheckConditions()
         {
-            if (avatar.x == goal.x & avatar.y == goal.y )
-                // if the avatar and goal are in same position
+            if (avatar.x == goal.x & avatar.y == goal.y)
+            // if the avatar and goal are in same position
             {
                 maze.GenerateMaze();
                 // regenerate maze
@@ -566,7 +562,7 @@ namespace maze_concept
                 pnlDraw.Refresh();
                 pnlDraw.Invalidate();
                 // force redraw panel
-                
+
                 Score += 1;
                 // add 1 to score
 
@@ -603,10 +599,10 @@ namespace maze_concept
 
         private void btnUsername_Click(object sender, EventArgs e)
         {
-            if (btnUserSpace) 
-                // if there is text in username text box
+            if (btnUserSpace)
+            // if there is text in username text box
             {
-                
+
                 txtBusername.Visible = false;
                 txtBusername.Enabled = false;
 
@@ -647,23 +643,23 @@ namespace maze_concept
 
         }
 
-        
+
 
         private void txtBusername_TextChanged(object sender, EventArgs e)
         {
             username = txtBusername.Text;
             // username input updated on username lable
 
-            if(txtBusername.Text == "")
-                // if the textbox is empty
+            if (txtBusername.Text == "")
+            // if the textbox is empty
             {
                 btnUsername.Enabled = false;
                 btnUserSpace = false;
                 // input button is disabled
             }
 
-            if(txtBusername.Text != "")
-                // if the text box is not empty
+            if (txtBusername.Text != "")
+            // if the text box is not empty
             {
                 btnUsername.Enabled = true;
                 btnUserSpace = true;
@@ -673,7 +669,7 @@ namespace maze_concept
 
         private void LBhighscores_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -681,10 +677,10 @@ namespace maze_concept
 
             // below is a devalopement bug testing algorithm, which is disabled by the logic that the score may never be equal or less than -1
             if (playing)
-                // if playing
+            // if playing
             {
-                if (Score <= 15)
-                    // if the score is less or equal to a value.
+                if (Score <= -1)
+                // if the score is less or equal to a value.
                 {
                     pnlDraw.Refresh();
                     maze.GenerateMaze();
@@ -719,8 +715,8 @@ namespace maze_concept
 
         public void UpdateListBox(string names, int score2)
         {
-           // LBhighscores.Items.Add(names + " - " + score2.ToString());
-           // add values to listbox, highscores currently bugged
+            // LBhighscores.Items.Add(names + " - " + score2.ToString());
+            // add values to listbox, highscores currently bugged
         }
 
         private void lblGameOver_Click(object sender, EventArgs e)
@@ -764,7 +760,7 @@ namespace maze_concept
             // start playing
 
             btnGameOverRestart.ForeColor = Color.Yellow;
-            
+
 
         }
 

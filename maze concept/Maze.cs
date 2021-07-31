@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 namespace maze_concept
@@ -12,7 +9,7 @@ namespace maze_concept
         public int Rows;
         public int Columns;
         // defines variable integers for rows and columns of the maze grid
-        
+
         public Cell[,] Cells;
         // defines the use of the class cell.cs
 
@@ -21,19 +18,19 @@ namespace maze_concept
 
         // below the maze is defined, recieving rows and columns
         public Maze(int rows, int columns)
-        {          
+        {
             Cells = new Cell[columns, rows];
             // cells is defined as the potenical for a cells position by column and row, as a list / array
-            
+
             Rows = rows;
             Columns = columns;
             // defines rows and columes for use within iterative function below
 
             for (int i = 0; i < columns; i++)
-                // for all columns defined
+            // for all columns defined
             {
                 for (int j = 0; j < rows; j++)
-                    // for all rowss defined across columns
+                // for all rowss defined across columns
                 {
                     Cells[i, j] = new Cell(i, j, (i + j) % 2 == 0);
                     // define cell by grid column ad row.
@@ -52,10 +49,10 @@ namespace maze_concept
             // wipe the history for reseting the map in the future of the game
 
             for (int i = 0; i < Columns; i++)
-                // for all cell by columns
+            // for all cell by columns
             {
                 for (int j = 0; j < Rows; j++)
-                    // for all rows by columns of cells
+                // for all rows by columns of cells
                 {
                     Cells[i, j].visited = false;
                     Cells[i, j].rightwall = true;
@@ -76,7 +73,7 @@ namespace maze_concept
             // add visted boolien into history stack
 
             while (history.Count > 0)
-                // while history  has more than 0 values in stack
+            // while history  has more than 0 values in stack
             {
                 startCell = history.Pop();
                 // define startcell as from the top value of the stack, removing it
@@ -85,7 +82,7 @@ namespace maze_concept
                 // define list of nextdoor cells
 
                 if (startCell.Y - 1 >= 0 && !Cells[startCell.X, startCell.Y - 1].visited)
-                    // if the Y -1  cell has been visted
+                // if the Y -1  cell has been visted
                 {
                     lonelyNeighbours.Add(new Point(startCell.X, startCell.Y - 1));
                     // add this cell to lonelyNieghbours list
@@ -110,7 +107,7 @@ namespace maze_concept
                 }
 
                 if (lonelyNeighbours.Count > 0)
-                    // if there are exists a cell next door which has not been visted
+                // if there are exists a cell next door which has not been visted
                 {
                     history.Push(startCell);
                     // push startcell on stack
@@ -118,13 +115,13 @@ namespace maze_concept
                     int dr = rand.Next(0, lonelyNeighbours.Count);
                     // pick random new start cell from lonely neighbours
                     Point next = lonelyNeighbours[dr];
-                    
+
 
                     var V = (next.X - startCell.X, next.Y - startCell.Y);
                     // define the new start cell by cell positions
 
                     if (V == (1, 0))
-                        // if the result shows new start cell is to the right
+                    // if the result shows new start cell is to the right
                     {
                         Cells[startCell.X, startCell.Y].rightwall = false;
                         // remove wall to the right
@@ -141,7 +138,7 @@ namespace maze_concept
                     // if the result shows new start cell is to the left
 
                     {
-                        Cells[startCell.X -1, startCell.Y].rightwall = false;
+                        Cells[startCell.X - 1, startCell.Y].rightwall = false;
                         // remove wall to the gith, from the cell to the left
 
                     }
@@ -149,7 +146,7 @@ namespace maze_concept
                     // if the result shows new start cell is to the top
 
                     {
-                        Cells[startCell.X, startCell.Y -1].bottomwall = false;
+                        Cells[startCell.X, startCell.Y - 1].bottomwall = false;
                         // remove wall to the bottom, from the cell above
                     }
 
@@ -165,10 +162,10 @@ namespace maze_concept
         public void DrawCells(Graphics g)
         {
             for (int i = 0; i < Columns; i++)
-                // for all columns
+            // for all columns
             {
                 for (int j = 0; j < Rows; j++)
-                    // for all rows of all columns
+                // for all rows of all columns
                 {
                     Cells[i, j].DrawCells(g);
                     // run draw cells method by i, j quantity of cells

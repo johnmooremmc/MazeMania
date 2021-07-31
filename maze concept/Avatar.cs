@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace maze_concept
 {
@@ -17,17 +12,17 @@ namespace maze_concept
         // deefines a source method for recieving an image
 
         public void DrawAvatar(Graphics g, string skin)
-        {           
+        {
 
             width = 45;
             height = 45;
             // defines integer values for the avater properties which will be drawn 
 
-            g.DrawImage(avatarSkin, x+2, y+2, width, height);
+            g.DrawImage(avatarSkin, x + 2, y + 2, width, height);
             // draws avater on grid using x and y positions defined elsewhere
 
             if (skin == "1")
-                // if the skin string sent in method = 1
+            // if the skin string sent in method = 1
             {
                 avatarSkin = Properties.Resources.Avatar3;
                 // define the image source of avatarskin as
@@ -65,7 +60,7 @@ namespace maze_concept
             if (skin == "8")
             {// if the skin string sent in method =
                 avatarSkin = Properties.Resources.avatar11;
-                  // define the image source of avatarskin as
+                // define the image source of avatarskin as
             }
             if (skin == "9")
             {// if the skin string sent in method =
@@ -75,7 +70,7 @@ namespace maze_concept
             if (skin == "10")
             {// if the skin string sent in method =
                 avatarSkin = Properties.Resources.avatar12;
-                  // define the image source of avatarskin as
+                // define the image source of avatarskin as
             }
         }
     }

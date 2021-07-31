@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
+﻿using System.Drawing;
 
 
 namespace maze_concept
 {
     class Cell
     {
-        
+
         public int width, height;
         public int x, y;
         // defines integer variables
@@ -45,7 +40,7 @@ namespace maze_concept
                 g.DrawLine(Pen, x, y + height, x + width, y + height);
                 // draw a line across from x to x + width
             }
-                // across a single x value
+            // across a single x value
 
             g.DrawLine(Pen, 0, y, 0, y + this.height);
             g.DrawLine(Pen, x, 0, x + this.width, 0);
@@ -53,26 +48,26 @@ namespace maze_concept
 
 
         }
-    
+
         public Cell(int i, int j, bool wall)
         {
             width = 50;
             height = 50;
             // a cell is defined, having a width and height of 50,50.
 
-            x = i *width;
-            y = j *height;
+            x = i * width;
+            y = j * height;
             // x and y position used in the method above are defined for each cell by an incremental i and j value
-           
-            
+
+
 
 
         }
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
     }
 }
