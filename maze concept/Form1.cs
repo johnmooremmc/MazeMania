@@ -217,6 +217,7 @@ namespace maze_concept
                     if (FormVisable)
                     {
                         HighScores.UpdateHighScore(username, Score, FormVisable);
+                        //check if form is active to prevent crashing
                     }
 
 
@@ -409,6 +410,7 @@ namespace maze_concept
             if (FormVisable)
             {
                 HighScores.UpdateHighScore(username, Score, FormVisable);
+                //check if form is active to prevent crashing
             }
             // run throguh highscores
 
@@ -689,6 +691,7 @@ namespace maze_concept
                     if (FormVisable)
                     {
                         HighScores.UpdateHighScore(username, Score, FormVisable);
+                        //check if form is active to prevent crashing
                     }
 
                     Random rand2 = new Random();
